@@ -1,0 +1,4 @@
+id,Description,Created (UTC),Amount,Currency,Fee,Net,Customer Email,Status
+ch_3ABC123,Payment for Order #1234,2025-02-10 14:32:15,5000,usd,175,4825,customer@example.com,succeeded
+ch_3ABC124,Subscription Payment,2025-02-11 09:15:42,2900,usd,114,2786,john@email.com,succeeded
+ch_3ABC125,Product Purchase,2025-02-12 16:45:33,15000,usd,465,14535,sarah@company.com,succeeded
