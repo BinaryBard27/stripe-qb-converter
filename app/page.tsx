@@ -385,22 +385,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Screenshot/Demo Section */}
-      <section className="py-20 bg-white">
-        <div className="mx-auto max-w-5xl px-4">
-          <h2 className="text-3xl font-bold text-center text-slate-900 mb-12">See It In Action</h2>
-          <div className="bg-slate-100 rounded-3xl p-4 sm:p-8 text-center ring-1 ring-slate-200">
-            <p className="text-slate-500 mb-8 font-medium italic">Instant Browser-Based Conversion</p>
-            <div className="relative aspect-video overflow-hidden rounded-xl shadow-2xl border border-white">
-              <img
-                src="/demo-screenshot.png"
-                alt="Stripe to QuickBooks conversion demo"
-                className="object-cover w-full h-full"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Screenshot/Demo Section Removed */}
 
       {/* Social Proof / Trust Badges */}
       <section className="py-16 bg-slate-50 border-y border-slate-200">
@@ -496,7 +481,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p className="text-slate-500 mb-6 font-medium">© 2025 StripeQBConverter.com • Made with ❤️ for small businesses</p>
           <div className="flex justify-center gap-8 text-sm font-semibold">
-            <a href="mailto:your@email.com" className="text-slate-400 hover:text-indigo-600 transition">Contact</a>
+            <a href="mailto:sherwindmello27@gmail.com" className="text-slate-400 hover:text-indigo-600 transition">Contact</a>
             <a
               href="https://github.com/BinaryBard27/stripe-qb-converter"
               target="_blank"
