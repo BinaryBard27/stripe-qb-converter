@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useState, useRef } from "react";
 import Papa from "papaparse";
 
 type QuickBooksRow = {
@@ -34,6 +34,14 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [isConverting, setIsConverting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const convertStripeToQuickBooks = useCallback((csvText: string) => {
     setError(null);
@@ -145,15 +153,56 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
       {/* Hero */}
-      <section className="relative overflow-hidden px-4 pt-16 pb-12 text-center sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden px-4 pt-24 pb-16 text-center sm:px-6 lg:px-8">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(99,102,241,0.15),transparent)]" />
-        <div className="relative mx-auto max-w-3xl">
-          <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-            Convert Stripe to QuickBooks in 10 Seconds
+        <div className="relative mx-auto max-w-4xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-sm font-medium mb-6 animate-fade-in">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+            </span>
+            Currently free while in beta
+          </div>
+          <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-6xl mb-6">
+            Stop wasting hours reconciling <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">
+              Stripe payouts
+            </span> in QuickBooks.
           </h1>
-          <p className="mt-4 text-lg text-slate-600 sm:text-xl">
-            Free forever. No signup required.
+          <p className="mt-4 text-lg text-slate-600 sm:text-xl max-w-2xl mx-auto leading-relaxed">
+            Upload your Stripe CSV and get a clean, QuickBooks-ready file in seconds.
+            <span className="block font-medium text-slate-900 mt-2">No manual cleanup. No spreadsheet hacks.</span>
           </p>
+
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              onClick={() => fileInputRef.current?.click()}
+              className="w-full sm:w-auto px-8 py-4 bg-indigo-600 text-white rounded-xl font-bold text-lg shadow-lg shadow-indigo-500/25 hover:bg-indigo-700 transition-all hover:scale-[1.02] active:scale-[0.98]"
+            >
+              Upload Stripe CSV
+            </button>
+            <button
+              onClick={() => scrollToSection("how-it-works")}
+              className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all shadow-sm"
+            >
+              See How It Works
+            </button>
+          </div>
+
+          <div className="mt-8 flex items-center justify-center gap-6 text-sm text-slate-500">
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              No Stripe login required
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Processed locally
+            </div>
+          </div>
         </div>
       </section>
 
@@ -172,6 +221,7 @@ export default function Home() {
             <input
               type="file"
               accept=".csv"
+              ref={fileInputRef}
               onChange={handleInputChange}
               className="hidden"
             />
@@ -258,237 +308,254 @@ export default function Home() {
       </section>
 
       {/* How it works */}
-      <section className="border-t border-slate-200/80 bg-white/60 px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-center text-3xl font-bold text-slate-900">How It Works</h2>
-          <div className="mt-12 grid gap-10 sm:grid-cols-3">
-            <div className="flex flex-col items-center text-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600 mb-6">
+      <section id="how-it-works" className="border-t border-slate-200/80 bg-white px-4 py-24 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">How It Works</h2>
+            <p className="mt-4 text-lg text-slate-600">Three simple steps to reconciliation bliss.</p>
+          </div>
+          <div className="grid gap-12 md:grid-cols-3">
+            <div className="relative p-8 rounded-3xl bg-slate-50 border border-slate-100 transition-all hover:shadow-md">
+              <div className="absolute -top-4 -left-4 w-10 h-10 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-bold shadow-lg">1</div>
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600 mb-6 group-hover:scale-110 transition-transform">
                 <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
               </div>
-              <h3 className="font-bold text-slate-900 text-lg">1. Upload</h3>
-              <p className="mt-2 text-slate-600">
-                Drop your Stripe payments export CSV file.
+              <h3 className="font-bold text-slate-900 text-xl mb-3">Export CSV</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Go to your Stripe Dashboard &rarr; Payments &rarr; Export and download your transaction history.
               </p>
             </div>
-            <div className="flex flex-col items-center text-center">
+            <div className="relative p-8 rounded-3xl bg-slate-50 border border-slate-100 transition-all hover:shadow-md">
+              <div className="absolute -top-4 -left-4 w-10 h-10 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-bold shadow-lg">2</div>
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600 mb-6">
                 <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                 </svg>
               </div>
-              <h3 className="font-bold text-slate-900 text-lg">2. Convert</h3>
-              <p className="mt-2 text-slate-600">
-                We map dates, amounts, fees, and details instantly in your browser.
+              <h3 className="font-bold text-slate-900 text-xl mb-3">Upload Here</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Drag and drop your file into the converter above. No data ever leaves your computer.
               </p>
             </div>
-            <div className="flex flex-col items-center text-center">
+            <div className="relative p-8 rounded-3xl bg-slate-50 border border-slate-100 transition-all hover:shadow-md">
+              <div className="absolute -top-4 -left-4 w-10 h-10 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-bold shadow-lg">3</div>
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600 mb-6">
                 <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-slate-900 text-lg">3. Download</h3>
-              <p className="mt-2 text-slate-600">
-                Get your QuickBooks-ready CSV and import it.
+              <h3 className="font-bold text-slate-900 text-xl mb-3">Import to QB</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Download your perfectly formatted CSV and import it directly into QuickBooks Online or Desktop.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What Gets Converted */}
-      <section className="py-20 bg-slate-50">
-        <div className="mx-auto max-w-4xl px-4">
-          <h2 className="text-3xl font-bold text-center text-slate-900 mb-12">What Gets Converted</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm transition hover:shadow-md">
-              <h3 className="text-xl font-bold mb-6 text-indigo-600 flex items-center gap-2">
-                <span className="text-2xl">✅</span> From Stripe
-              </h3>
-              <ul className="space-y-4 text-slate-600">
-                <li className="flex items-center gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-                  Transaction ID
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-                  Date & Time
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-                  Amount (in cents)
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-                  Stripe Fees
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-                  Customer Email
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-                  Description
-                </li>
+      {/* Problem Section */}
+      <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.15),transparent)]" />
+        <div className="mx-auto max-w-5xl px-4 relative">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl font-extrabold mb-6 sm:text-4xl text-white">
+                Why Stripe + QuickBooks reconciliation is painful
+              </h2>
+              <p className="text-lg text-slate-400 mb-8">
+                If you've ever tried to import a raw Stripe export into QuickBooks, you know it's a nightmare. We fixed the four biggest headaches:
+              </p>
+              <ul className="space-y-6">
+                {[
+                  { title: "Payout Bundling", desc: "Stripe payouts group multiple transactions into one deposit, making matching impossible." },
+                  { title: "Hidden Fees", desc: "Fees are deducted before transfers, leading to balance mismatches in your books." },
+                  { title: "Refund Mismatches", desc: "Refunds often appear in different payout cycles than the original sale." },
+                  { title: "Formatting Hell", desc: "QuickBooks expects specific column headers and date formats that Stripe doesn't provide." }
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-4">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/20 text-red-500 flex items-center justify-center mt-1">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white mb-1">{item.title}</h4>
+                      <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
-            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm transition hover:shadow-md">
-              <h3 className="text-xl font-bold mb-6 text-emerald-600 flex items-center gap-2">
-                <span className="text-2xl">✅</span> To QuickBooks
-              </h3>
-              <ul className="space-y-4 text-slate-600">
-                <li className="flex items-center gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-                  Transaction ID
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-                  Date (MM/DD/YYYY)
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-                  Amount (in dollars)
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-                  Fee (separate column)
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-                  Net Amount (auto-calculated)
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-                  Customer Name/Email
-                </li>
-              </ul>
+            <div className="bg-slate-800/50 border border-slate-700 p-8 rounded-3xl backdrop-blur-sm">
+              <div className="space-y-4">
+                <div className="h-4 w-3/4 bg-slate-700 rounded animate-pulse" />
+                <div className="h-4 w-1/2 bg-slate-700 rounded animate-pulse" />
+                <div className="h-24 w-full bg-slate-700/50 rounded-xl flex items-center justify-center border border-slate-600 border-dashed">
+                  <span className="text-slate-500 text-sm italic">Simulating spreadsheet manual work...</span>
+                </div>
+                <div className="h-4 w-2/3 bg-slate-700 rounded animate-pulse" />
+                <div className="h-4 w-full bg-slate-700 rounded animate-pulse" />
+                <div className="pt-4 mt-4 border-t border-slate-700">
+                  <p className="text-xs text-red-400 font-mono">Error: QuickBooks column 'Net' not found.</p>
+                  <p className="text-xs text-red-400 font-mono mt-1">Error: Date format '2025-02-23T22:30:45Z' invalid.</p>
+                </div>
+              </div>
+              <div className="mt-8 text-center text-sm font-medium text-slate-300">
+                Stop the manual madness.
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Screenshot/Demo Section Removed */}
+      {/* Demo Section */}
+      <section className="py-24 bg-white px-4 border-b border-slate-100">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-extrabold text-slate-900">See it in action</h2>
+            <p className="mt-4 text-slate-600">The simplest way to export Stripe to QuickBooks.</p>
+          </div>
+          <div className="aspect-video bg-slate-50 rounded-3xl border-4 border-slate-100 flex items-center justify-center relative shadow-2xl overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-violet-500/5" />
+            <div className="text-center relative z-10 px-4">
+              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:scale-110 transition-transform">
+                <svg className="w-10 h-10 text-indigo-600 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M4.555 5.168A1 1 0 003 6.07v7.86a1 1 0 001.555.832l6.666-3.93a1 1 0 000-1.664l-6.666-3.93z" />
+                </svg>
+              </div>
+              <p className="text-xl font-bold text-slate-900 mb-2">Demo coming soon</p>
+              <p className="text-slate-500">We're recording a walkthrough of the tool.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/* Social Proof / Trust Badges */}
-      <section className="py-16 bg-slate-50 border-y border-slate-200">
-        <div className="max-w-4xl mx-auto text-center px-4">
+      {/* Trust / Stats Section */}
+      <section className="py-20 bg-slate-50 border-y border-slate-200">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-12">Built for founders and accountants</h3>
           <div className="grid md:grid-cols-3 gap-12">
             <div className="flex flex-col items-center">
-              <div className="text-5xl mb-4 transform transition hover:scale-110 duration-200">⚡</div>
-              <div className="text-2xl font-bold text-slate-900 mb-1">10 Seconds</div>
-              <p className="text-slate-600">Average conversion time</p>
+              <div className="text-4xl mb-4">🔒</div>
+              <div className="text-xl font-bold text-slate-900 mb-1">100% Private</div>
+              <p className="text-slate-500 text-sm">Data stays in your browser. Never touches our servers.</p>
             </div>
             <div className="flex flex-col items-center">
-              <div className="text-5xl mb-4 transform transition hover:scale-110 duration-200">🔒</div>
-              <div className="text-2xl font-bold text-slate-900 mb-1">100% Private</div>
-              <p className="text-slate-600">Never touches our servers</p>
+              <div className="text-4xl mb-4">⚡</div>
+              <div className="text-xl font-bold text-slate-900 mb-1">Instant Conversion</div>
+              <p className="text-slate-500 text-sm">Processing happens in milliseconds, not minutes.</p>
             </div>
             <div className="flex flex-col items-center">
-              <div className="text-5xl mb-4 transform transition hover:scale-110 duration-200">💯</div>
-              <div className="text-2xl font-bold text-slate-900 mb-1">Always Free</div>
-              <p className="text-slate-600">No hidden costs, ever</p>
+              <div className="text-4xl mb-4">💯</div>
+              <div className="text-xl font-bold text-slate-900 mb-1">Reliable Formatting</div>
+              <p className="text-slate-500 text-sm">Built to match QuickBooks Online & Desktop requirements.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl">
-          <h2 className="text-center text-2xl font-bold text-slate-900">
-            Frequently Asked Questions
-          </h2>
-          <dl className="mt-10 space-y-6">
-            <div className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200/80">
-              <dt className="font-semibold text-slate-900">Is my data safe?</dt>
-              <dd className="mt-2 text-sm text-slate-600">
-                Yes. Everything runs in your browser. Your file is never sent to our servers.
-              </dd>
+      {/* Pricing Section */}
+      <section className="py-24 bg-white px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">Simple, transparent pricing</h2>
+            <p className="mt-4 text-lg text-slate-600">Currently free while in beta. No credit card required.</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            <div className="p-8 rounded-3xl bg-white border-2 border-slate-100 shadow-sm relative overflow-hidden">
+              <div className="mb-6">
+                <h4 className="text-lg font-bold text-slate-900 mb-1">Free</h4>
+                <div className="flex items-baseline">
+                  <span className="text-4xl font-extrabold text-slate-900">$0</span>
+                  <span className="text-slate-500 ml-1">/mo</span>
+                </div>
+              </div>
+              <ul className="space-y-4 mb-10">
+                {["1 CSV per month", "Basic conversion", "Browser-only processing"].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-slate-600 text-sm">
+                    <svg className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="w-full py-3 bg-slate-100 text-slate-900 rounded-xl font-bold hover:bg-slate-200 transition-colors"
+              >
+                Get Started
+              </button>
             </div>
-            <div className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200/80">
-              <dt className="font-semibold text-slate-900">What Stripe format do you support?</dt>
-              <dd className="mt-2 text-sm text-slate-600">
-                Standard Stripe payments export (CSV). Use the same export you get from Stripe
-                Dashboard → Payments → Export.
-              </dd>
-            </div>
-            <div className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200/80">
-              <dt className="font-semibold text-slate-900">Which QuickBooks version?</dt>
-              <dd className="mt-2 text-sm text-slate-600">
-                Works with QuickBooks Online, Desktop, and Self-Employed. Import as a bank
-                transaction or similar CSV import.
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </section>
 
-      {/* Email capture (Formspree) */}
-      <section className="py-20 bg-gradient-to-br from-indigo-50 to-white px-4 border-t border-slate-200">
-        <div className="max-w-md mx-auto text-center px-4">
-          <h3 className="text-2xl font-bold text-slate-900 mb-4">Get Product Updates</h3>
-          <p className="text-slate-600 mb-8">
-            We'll notify you when we add new features (PayPal support, batch processing, etc.)
-          </p>
-          <form
-            action="https://formspree.io/f/xzdajyqg"
-            method="POST"
-            className="space-y-4"
-          >
-            <input
-              type="email"
-              name="email"
-              placeholder="your@email.com"
-              required
-              className="w-full px-5 py-4 rounded-xl border border-slate-300 bg-white text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition shadow-sm"
-            />
-            <button
-              type="submit"
-              className="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-indigo-700 transition shadow-lg shadow-indigo-500/20 active:scale-[0.98]"
-            >
-              Subscribe (Free)
-            </button>
-            <p className="text-xs text-slate-500 pt-2 flex items-center justify-center gap-1">
-              <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-              No spam. Unsubscribe anytime.
-            </p>
-          </form>
+            <div className="p-8 rounded-3xl bg-white border-2 border-indigo-600 shadow-xl shadow-indigo-500/10 relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-indigo-600 text-white px-4 py-1 rounded-bl-xl text-xs font-bold uppercase tracking-wider">
+                Coming Soon
+              </div>
+              <div className="mb-6">
+                <h4 className="text-lg font-bold text-slate-900 mb-1">Pro</h4>
+                <div className="flex items-baseline">
+                  <span className="text-4xl font-extrabold text-slate-900">$19</span>
+                  <span className="text-slate-500 ml-1">/mo</span>
+                </div>
+              </div>
+              <ul className="space-y-4 mb-10 text-sm">
+                {["Unlimited conversions", "Advanced formatting", "Priority support", "PayPal & Square support"].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-slate-600">
+                    <svg className="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <button disabled className="w-full py-3 bg-indigo-50 text-indigo-400 rounded-xl font-bold cursor-not-allowed">
+                Waitlist Only
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-slate-200 bg-white">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <p className="text-slate-500 mb-6 font-medium">© 2025 StripeQBConverter.com • Made with ❤️ for small businesses</p>
-          <div className="flex justify-center gap-8 text-sm font-semibold">
-            <a href="mailto:sherwindmello27@gmail.com" className="text-slate-400 hover:text-indigo-600 transition">Contact</a>
-            <a
-              href="https://github.com/BinaryBard27/stripe-qb-converter"
-              target="_blank"
-              className="text-slate-400 hover:text-indigo-600 transition flex items-center gap-1"
-            >
-              GitHub
-            </a>
+      <footer className="py-20 border-t border-slate-200 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-12 mb-16">
+            <div className="col-span-2">
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold select-none">S</div>
+                <span className="text-xl font-extrabold text-slate-900 tracking-tight">StripeQB</span>
+              </div>
+              <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
+                The fastest way to convert Stripe balance reports into QuickBooks-ready import files. Built for modern businesses.
+              </p>
+            </div>
+            <div>
+              <h5 className="font-bold text-slate-900 mb-6">Product</h5>
+              <ul className="space-y-4 text-sm text-slate-500">
+                <li><a href="#" className="hover:text-indigo-600 transition-colors">How it works</a></li>
+                <li><a href="#" className="hover:text-indigo-600 transition-colors">Pricing</a></li>
+                <li><a href="https://github.com/BinaryBard27/stripe-qb-converter" className="hover:text-indigo-600 transition-colors">Open Source</a></li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-bold text-slate-900 mb-6">Contact</h5>
+              <ul className="space-y-4 text-sm text-slate-500">
+                <li><a href="mailto:sherwindmello27@gmail.com" className="hover:text-indigo-600 transition-colors">Email Support</a></li>
+                <li><a href="#" className="hover:text-indigo-600 transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-indigo-600 transition-colors">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-slate-400 text-xs">© 2025 StripeQB Converter. All rights reserved.</p>
+            <div className="flex items-center gap-6">
+              <a href="https://github.com/BinaryBard27/stripe-qb-converter" className="text-slate-400 hover:text-slate-900 transition-colors">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
+              </a>
+            </div>
           </div>
         </div>
       </footer>
