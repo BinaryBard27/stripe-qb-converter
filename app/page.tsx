@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from "react";
 import Papa from "papaparse";
+// @ts-expect-error -- xlsx types not bundled
 import * as XLSX from "xlsx";
 
 type QuickBooksRow = {
@@ -35,21 +36,61 @@ function centsToDollars(cents: string | number): string {
   return (num / 100).toFixed(2);
 }
 
+function findEmail(row: Record<string, string>): string {
+  // Try known email field names first
+  const candidates = [
+    row["Customer Email"],
+    row["Customer email"],
+    row["customer_email"],
+    row["email"],
+  ];
+  for (const val of candidates) {
+    if (val && val.includes("@")) return val;
+  }
+  // Fallback: scan all values for something that looks like an email
+  for (const val of Object.values(row)) {
+    if (val && val.includes("@") && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+      return val;
+    }
+  }
+  return "";
+}
+
 function parseCSV(text: string, delimiter?: string): Record<string, string>[] {
-  const parsed = Papa.parse<Record<string, string>>(text, {
-    header: true,
+  // Parse without headers to avoid PapaParse issues with duplicate header names
+  // (Stripe exports have duplicate "Seller Message" columns).
+  const parsed = Papa.parse<string[]>(text, {
+    header: false,
     skipEmptyLines: true,
     delimiter,
   });
 
-  const fatalErrors = parsed.errors.filter(
-    (e) => e.type === "Delimiter" || e.type === "FieldMismatch"
-  );
-  if (fatalErrors.length && !parsed.data.length) {
+  if (!parsed.data.length || parsed.data.length < 2) {
     throw new Error("Could not parse CSV. Please use a valid Stripe export.");
   }
 
-  return parsed.data;
+  const headers = parsed.data[0];
+  const dataRows = parsed.data.slice(1);
+  const headerCount = headers.length;
+
+  // Stripe CSVs can have duplicate headers (e.g. "Seller Message" appears twice).
+  // When data rows have more values than headers, pad headers with unique names.
+  const sampleRow = dataRows[0] ?? [];
+  const paddedHeaders = [...headers];
+  if (sampleRow.length > headerCount) {
+    for (let i = headerCount; i < sampleRow.length; i++) {
+      paddedHeaders.push(`__extra_${i}`);
+    }
+  }
+
+  return dataRows.map((values) => {
+    const row: Record<string, string> = {};
+    paddedHeaders.forEach((header, i) => {
+      const key = header.trim();
+      row[key] = (values[i] ?? "").trim();
+    });
+    return row;
+  });
 }
 
 function parseXLSX(buffer: ArrayBuffer): Record<string, string>[] {
@@ -120,12 +161,7 @@ export default function Home() {
         Amount: centsToDollars(amountCents),
         Fee: centsToDollars(feeCents),
         Net: net,
-        Customer:
-          row["Customer Email"] ??
-          row["Customer email"] ??
-          row["customer_email"] ??
-          row["email"] ??
-          "",
+        Customer: findEmail(row),
         "Transaction ID": row["id"] ?? "",
       };
     });
