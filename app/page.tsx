@@ -45,7 +45,10 @@ export default function Home() {
       skipEmptyLines: true,
     });
 
-    if (parsed.errors.length) {
+    const fatalErrors = parsed.errors.filter(
+      (e) => e.type === "Delimiter" || e.type === "FieldMismatch"
+    );
+    if (fatalErrors.length && !parsed.data.length) {
       setError("Could not parse CSV. Please use a valid Stripe export.");
       return;
     }
@@ -148,11 +151,10 @@ export default function Home() {
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
-            className={`flex min-h-[200px] cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed transition-all ${
-              isDragging
+            className={`flex min-h-[200px] cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed transition-all ${isDragging
                 ? "border-indigo-500 bg-indigo-50/50"
                 : "border-slate-300 bg-white hover:border-indigo-400 hover:bg-slate-50/50"
-            }`}
+              }`}
           >
             <input
               type="file"
