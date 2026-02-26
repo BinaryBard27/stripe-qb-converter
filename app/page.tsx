@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 import Papa from "papaparse";
-// @ts-expect-error -- xlsx types not bundled
+
 import * as XLSX from "xlsx";
 
 type QuickBooksRow = {
@@ -133,6 +133,7 @@ export default function Home() {
   const [isDragging, setIsDragging] = useState(false);
   const [convertedCsvUrl, setConvertedCsvUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [emailStatus, setEmailStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const convertRows = useCallback((rows: Record<string, string>[]) => {
     setError(null);
@@ -478,38 +479,62 @@ export default function Home() {
             Get notified of updates
           </p>
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
+              setEmailStatus("sending");
               const form = e.currentTarget;
-              const email =
-                (
-                  form.querySelector(
-                    'input[name="email"]'
-                  ) as HTMLInputElement
-                )?.value ?? "";
-              const body = email
-                ? `Please add me to your update list. Email: ${encodeURIComponent(email)}`
-                : "Please add me to your update list.";
-              window.location.href = `mailto:?subject=${encodeURIComponent("Stripe to QuickBooks updates")}&body=${body}`;
+              const formData = new FormData(form);
+              try {
+                const response = await fetch(
+                  "https://formspree.io/f/xzdajyqg",
+                  {
+                    method: "POST",
+                    body: formData,
+                    headers: { Accept: "application/json" },
+                  }
+                );
+                if (response.ok) {
+                  setEmailStatus("success");
+                  form.reset();
+                } else {
+                  setEmailStatus("error");
+                }
+              } catch {
+                setEmailStatus("error");
+              }
             }}
             className="mt-3 flex flex-col gap-2 sm:flex-row sm:justify-center"
           >
             <input
               type="email"
               name="email"
+              required
               placeholder="you@example.com"
               className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
             />
             <button
               type="submit"
-              className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700"
+              disabled={emailStatus === "sending"}
+              className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:opacity-50"
             >
-              Notify me
+              {emailStatus === "sending" ? "Sending..." : "Notify me"}
             </button>
           </form>
-          <p className="mt-2 text-xs text-slate-500">
-            Opens your email client. Replace with Formspree when ready.
-          </p>
+          {emailStatus === "success" && (
+            <p className="mt-2 text-xs font-medium text-green-600">
+              ✓ You&apos;re signed up! We&apos;ll keep you posted.
+            </p>
+          )}
+          {emailStatus === "error" && (
+            <p className="mt-2 text-xs font-medium text-red-600">
+              Something went wrong. Please try again.
+            </p>
+          )}
+          {emailStatus === "idle" && (
+            <p className="mt-2 text-xs text-slate-500">
+              We&apos;ll only email you about important updates. No spam.
+            </p>
+          )}
         </div>
       </section>
     </div>
