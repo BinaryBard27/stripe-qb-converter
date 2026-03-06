@@ -277,6 +277,14 @@ export default function Home() {
           <p className="mt-4 text-lg text-slate-600 sm:text-xl">
             Free forever. No signup required.
           </p>
+          <div className="mt-8 flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-700 ring-1 ring-emerald-600/20">
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+              100% Private Local Conversion. Your data never leaves your browser.
+            </div>
+          </div>
         </div>
       </section>
 
@@ -357,12 +365,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Demo Stream / Screen Recording */}
+      <section className="px-4 py-12 sm:px-6 lg:px-8 border-t border-slate-200/80 bg-slate-50/50">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-2xl font-bold text-slate-900 mb-6">See it in action</h2>
+          <div className="relative mx-auto rounded-2xl overflow-hidden shadow-2xl ring-1 ring-slate-200 aspect-video bg-slate-900 flex items-center justify-center">
+            <video
+              className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls
+            >
+              <source src="/demo-recording.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p className="mt-4 text-sm text-slate-500">
+            A quick walkthrough showing how to convert your Stripe CSV to a QuickBooks-ready format locally.
+          </p>
+        </div>
+      </section>
+
       {/* How it works */}
       <section className="border-t border-slate-200/80 bg-white/60 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-center text-2xl font-bold text-slate-900">
             How It Works
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-slate-600">
+            We use the standard <code className="rounded bg-slate-100 px-1 py-0.5 text-sm text-slate-800">FileReader API</code> to process your file locally. This means your financial data is converted directly on your device and is <strong>never uploaded or stored</strong> on any server.
+          </p>
           <div className="mt-10 grid gap-10 sm:grid-cols-3">
             <div className="flex flex-col items-center text-center">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600">
@@ -537,6 +571,26 @@ export default function Home() {
           )}
         </div>
       </section>
+
+      {/* Footer / Transparency */}
+      <footer className="border-t border-slate-200/80 bg-white px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-4xl gap-8 sm:grid-cols-2 text-sm text-slate-600">
+          <div>
+            <h3 className="font-semibold text-slate-900">Known Limitations</h3>
+            <ul className="mt-3 list-inside list-disc space-y-2 text-slate-500">
+              <li>Multi-currency conversions are currently not supported; amounts are processed as-is.</li>
+              <li>Refunds and disputes may require manual review in QuickBooks.</li>
+              <li>Designed primarily for standard Stripe payment exports.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold text-slate-900">About the Developer</h3>
+            <p className="mt-3 text-slate-500">
+              Built by an independent developer to solve a real headache with accounting software integrations. The goal is to keep financial utilities simple, free, and secure.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
