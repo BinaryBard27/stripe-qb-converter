@@ -25,6 +25,14 @@ const tools = [
     badgeColor: "bg-blue-100 text-blue-700",
     icon: "💳",
   },
+  {
+    slug: "quickbooks-import-error-checker",
+    name: "QuickBooks CSV Import Error Checker",
+    description: "Paste your CSV and instantly see why QuickBooks is rejecting it — with specific fixes for each error.",
+    badge: "High Intent",
+    badgeColor: "bg-green-100 text-green-700",
+    icon: "🔍",
+  },
   // Uncomment as you build each one:
   // {
   //   slug: "quickbooks-import-error-checker",
@@ -48,7 +56,6 @@ const tools = [
 
 // Coming soon — shows as greyed placeholders (good for SEO crawl signals)
 const comingSoon = [
-  "QuickBooks Import Error Checker",
   "Stripe Payout Calculator",
   "Bookkeeping Hours Saved Calculator",
   "Stripe Refund Impact Calculator",
