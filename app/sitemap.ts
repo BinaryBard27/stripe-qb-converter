@@ -4,6 +4,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const toolSlugs = [
     "stripe-fee-calculator",
     "quickbooks-import-error-checker",
+    "stripe-refund-impact-calculator",
+    "stripe-vs-paypal-fee-comparison",
   ];
 
   const toolUrls = toolSlugs.map((slug) => ({

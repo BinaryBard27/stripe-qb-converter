@@ -33,32 +33,24 @@ const tools = [
     badgeColor: "bg-green-100 text-green-700",
     icon: "🔍",
   },
-  // Uncomment as you build each one:
-  // {
-  //   slug: "quickbooks-import-error-checker",
-  //   name: "QuickBooks CSV Import Error Checker",
-  //   description: "Paste your CSV and instantly see why QuickBooks is rejecting it.",
-  //   icon: "🔍",
-  // },
-  // {
-  //   slug: "stripe-payout-calculator",
-  //   name: "Stripe Payout Calculator",
-  //   description: "See exactly when your Stripe payouts land and how much you'll receive.",
-  //   icon: "📅",
-  // },
-  // {
-  //   slug: "stripe-refund-impact-calculator",
-  //   name: "Stripe Refund Impact Calculator",
-  //   description: "Calculate the true cost of refunds — Stripe keeps the fee.",
-  //   icon: "↩️",
-  // },
+  {
+    slug: "stripe-refund-impact-calculator",
+    name: "Stripe Refund Impact Calculator",
+    description: "See the true cost of issuing a Stripe refund — Stripe keeps the fee even when you refund.",
+    icon: "↩️",
+  },
+  {
+    slug: "stripe-vs-paypal-fee-comparison",
+    name: "Stripe vs PayPal Fee Comparison",
+    description: "Compare Stripe and PayPal fees side by side — see which processor saves you more money.",
+    icon: "⚖️",
+  },
 ];
 
 // Coming soon — shows as greyed placeholders (good for SEO crawl signals)
 const comingSoon = [
   "Stripe Payout Calculator",
   "Bookkeeping Hours Saved Calculator",
-  "Stripe Refund Impact Calculator",
 ];
 
 export default function ToolsIndexPage() {
