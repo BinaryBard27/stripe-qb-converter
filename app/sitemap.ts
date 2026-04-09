@@ -6,6 +6,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "quickbooks-import-error-checker",
     "stripe-refund-impact-calculator",
     "stripe-vs-paypal-fee-comparison",
+    "bookkeeping-hours-saved-calculator",
+    "annual-bookkeeping-cost-calculator",
+    "stripe-revenue-forecaster",
+    "quickbooks-chart-of-accounts-generator",
+    "csv-column-mapper",
   ];
 
   const toolUrls = toolSlugs.map((slug) => ({

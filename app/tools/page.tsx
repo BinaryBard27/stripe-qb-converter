@@ -45,12 +45,41 @@ const tools = [
     description: "Compare Stripe and PayPal fees side by side — see which processor saves you more money.",
     icon: "⚖️",
   },
+  {
+    slug: "bookkeeping-hours-saved-calculator",
+    name: "Bookkeeping Hours Saved Calculator",
+    description: "Calculate how many hours bookkeeping costs you monthly and how much automation could save.",
+    icon: "⏱️",
+  },
+  {
+    slug: "annual-bookkeeping-cost-calculator",
+    name: "Annual Bookkeeping Cost Calculator",
+    description: "Compare the true annual cost of DIY bookkeeping vs hiring a bookkeeper vs software.",
+    icon: "💰",
+  },
+  {
+    slug: "stripe-revenue-forecaster",
+    name: "Stripe Revenue Forecaster",
+    description: "Project your Stripe revenue for the next 12 months based on current MRR and growth rate.",
+    icon: "📈",
+  },
+  {
+    slug: "quickbooks-chart-of-accounts-generator",
+    name: "QuickBooks Chart of Accounts Generator",
+    description: "Generate a ready-to-import QuickBooks chart of accounts template for your business type.",
+    icon: "📋",
+  },
+  {
+    slug: "csv-column-mapper",
+    name: "CSV Column Mapper",
+    description: "Paste any CSV, rename columns to match QuickBooks format, and download the fixed file.",
+    icon: "🗂️",
+  },
 ];
 
 // Coming soon — shows as greyed placeholders (good for SEO crawl signals)
 const comingSoon = [
   "Stripe Payout Calculator",
-  "Bookkeeping Hours Saved Calculator",
 ];
 
 export default function ToolsIndexPage() {
