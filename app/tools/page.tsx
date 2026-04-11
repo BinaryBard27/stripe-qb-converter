@@ -75,6 +75,36 @@ const tools = [
     description: "Paste any CSV, rename columns to match QuickBooks format, and download the fixed file.",
     icon: "🗂️",
   },
+  {
+    slug: "stripe-fee-calculator-uk",
+    name: "Stripe Fee Calculator UK",
+    description: "Calculate Stripe fees for UK businesses in GBP — with UK card rates (1.5% + 20p).",
+    icon: "🇬🇧",
+  },
+  {
+    slug: "stripe-international-fee-calculator",
+    name: "Stripe International Fee Calculator",
+    description: "Calculate Stripe fees for international and cross-border transactions with currency conversion.",
+    icon: "🌍",
+  },
+  {
+    slug: "stripe-credit-card-fee-calculator",
+    name: "Stripe Credit Card Fee Calculator",
+    description: "Compare Stripe fees by card type — Visa, Mastercard, Amex, international cards.",
+    icon: "💳",
+  },
+  {
+    slug: "stripe-processing-fee-calculator",
+    name: "Stripe Processing Fee Calculator",
+    description: "Calculate Stripe processing fees with monthly volume projections and annual totals.",
+    icon: "⚡",
+  },
+  {
+    slug: "how-much-does-stripe-charge",
+    name: "How Much Does Stripe Charge?",
+    description: "Complete Stripe fee guide — every charge explained with a live calculator.",
+    icon: "❓",
+  },
 ];
 
 // Coming soon — shows as greyed placeholders (good for SEO crawl signals)

@@ -11,6 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "stripe-revenue-forecaster",
     "quickbooks-chart-of-accounts-generator",
     "csv-column-mapper",
+    "stripe-fee-calculator-uk",
+    "stripe-international-fee-calculator",
+    "stripe-credit-card-fee-calculator",
+    "stripe-processing-fee-calculator",
+    "how-much-does-stripe-charge",
   ];
 
   const toolUrls = toolSlugs.map((slug) => ({
