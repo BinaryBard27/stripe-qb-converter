@@ -8,9 +8,9 @@ import ToolLayout from "@/components/ToolLayout";
 import StripeFeeCalculatorClient from "./StripeFeeCalculatorClient";
 
 export const metadata: Metadata = {
-  title: "Stripe Fee Calculator — Calculate Stripe Transaction Costs Instantly",
+  title: "Stripe Fee Calculator — 2.9% + $0.30 Explained | Free & Instant",
   description:
-    "Calculate exactly how much Stripe charges per transaction (2.9% + $0.30). See your net payout, total fees, and what to charge to receive a specific amount. Free, instant, no signup.",
+    "Calculate exactly how much Stripe charges per transaction (2.9% + $0.30). See your net payout instantly. Free tool — no signup, no data stored. Used by thousands of Stripe merchants.",
   keywords: [
     "stripe fee calculator",
     "stripe transaction fee",
