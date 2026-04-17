@@ -16,6 +16,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "stripe-credit-card-fee-calculator",
     "stripe-processing-fee-calculator",
     "how-much-does-stripe-charge",
+    "stripe-to-xero-converter",
+    "stripe-mtd-bridging-formatter",
+    "stripe-to-freeagent-converter",
   ];
 
   const toolUrls = toolSlugs.map((slug) => ({

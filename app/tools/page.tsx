@@ -105,6 +105,24 @@ const tools = [
     description: "Complete Stripe fee guide — every charge explained with a live calculator.",
     icon: "❓",
   },
+  {
+    slug: "stripe-to-xero-converter",
+    name: "Stripe to Xero Converter",
+    description: "Convert your Stripe CSV export to Xero bank import format. HMRC compliant, free, no signup.",
+    icon: "🔄",
+  },
+  {
+    slug: "stripe-mtd-bridging-formatter",
+    name: "Stripe MTD Bridging Formatter",
+    description: "Format Stripe transactions for Making Tax Digital (MTD) compliance. HMRC recognised, free.",
+    icon: "🇬🇧",
+  },
+  {
+    slug: "stripe-to-freeagent-converter",
+    name: "Stripe to FreeAgent Converter",
+    description: "Convert Stripe CSV to FreeAgent import format. Free for NatWest, RBS and Mettle customers.",
+    icon: "🏦",
+  },
 ];
 
 // Coming soon — shows as greyed placeholders (good for SEO crawl signals)
