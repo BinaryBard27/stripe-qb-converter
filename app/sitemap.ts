@@ -19,6 +19,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "stripe-to-xero-converter",
     "stripe-mtd-bridging-formatter",
     "stripe-to-freeagent-converter",
+    "calculadora-comisiones-stripe",
+    "stripe-currency-conversion-calculator",
+    "stripe-subscription-cost-calculator",
+    "vat-threshold-calculator-uk",
   ];
 
   const toolUrls = toolSlugs.map((slug) => ({

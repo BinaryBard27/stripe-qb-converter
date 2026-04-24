@@ -123,6 +123,30 @@ const tools = [
     description: "Convert Stripe CSV to FreeAgent import format. Free for NatWest, RBS and Mettle customers.",
     icon: "🏦",
   },
+  {
+    slug: "calculadora-comisiones-stripe",
+    name: "Calculadora de Comisiones Stripe",
+    description: "Calcula exactamente cuánto cobra Stripe por transacción. Gratis, sin registro.",
+    icon: "🇪🇸",
+  },
+  {
+    slug: "stripe-currency-conversion-calculator",
+    name: "Stripe Currency Conversion Calculator",
+    description: "Calculate Stripe fees for multi-currency transactions including the 1% conversion fee.",
+    icon: "💱",
+  },
+  {
+    slug: "stripe-subscription-cost-calculator",
+    name: "Stripe Subscription Cost Calculator",
+    description: "Calculate Stripe fees for monthly vs annual plans. Find the most cost-efficient billing frequency.",
+    icon: "📊",
+  },
+  {
+    slug: "vat-threshold-calculator-uk",
+    name: "UK VAT Threshold Calculator",
+    description: "See if your UK business needs to register for VAT. Updated for the £90,000 threshold.",
+    icon: "🇬🇧",
+  },
 ];
 
 // Coming soon — shows as greyed placeholders (good for SEO crawl signals)
