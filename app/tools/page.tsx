@@ -82,6 +82,18 @@ const tools = [
     icon: "🇬🇧",
   },
   {
+    slug: "stripe-fee-calculator-australia",
+    name: "Stripe Fee Calculator Australia",
+    description: "Calculate Stripe fees for Australian businesses in AUD. Includes NZD and GST options.",
+    icon: "🇦🇺",
+  },
+  {
+    slug: "stripe-fee-calculator-canada",
+    name: "Stripe Fee Calculator Canada",
+    description: "Calculate Stripe fees for Canadian businesses in CAD. Includes HST/GST by province.",
+    icon: "🇨🇦",
+  },
+  {
     slug: "stripe-international-fee-calculator",
     name: "Stripe International Fee Calculator",
     description: "Calculate Stripe fees for international and cross-border transactions with currency conversion.",

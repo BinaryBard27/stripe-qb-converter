@@ -12,6 +12,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "quickbooks-chart-of-accounts-generator",
     "csv-column-mapper",
     "stripe-fee-calculator-uk",
+    "stripe-fee-calculator-australia",
+    "stripe-fee-calculator-canada",
     "stripe-international-fee-calculator",
     "stripe-credit-card-fee-calculator",
     "stripe-processing-fee-calculator",
