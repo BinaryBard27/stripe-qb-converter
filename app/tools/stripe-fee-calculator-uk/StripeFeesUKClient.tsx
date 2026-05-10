@@ -38,7 +38,7 @@ export default function StripeFeesUKClient() {
 
       {/* UK notice */}
       <div className="flex items-start gap-2 bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 text-sm">
-        <span className="text-blue-500 mt-0.5">🇬🇧</span>
+        <span className="text-blue-500 mt-0.5"></span>
         <p className="text-blue-700">Using Stripe UK pricing: <strong>1.5% + 20p</strong> for UK cards, <strong>2.5% + 20p</strong> for international/EEA cards.</p>
       </div>
 

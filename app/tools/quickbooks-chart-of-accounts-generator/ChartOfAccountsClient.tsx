@@ -87,11 +87,11 @@ const ACCOUNTS: Record<BizType, Account[]> = {
 };
 
 const BIZ_TYPES: { id: BizType; label: string; icon: string }[] = [
-  { id: "saas", label: "SaaS / Software", icon: "💻" },
-  { id: "ecommerce", label: "E-commerce", icon: "🛒" },
-  { id: "freelance", label: "Freelance", icon: "👤" },
-  { id: "retail", label: "Retail", icon: "🏪" },
-  { id: "service", label: "Service Business", icon: "🔧" },
+  { id: "saas", label: "SaaS / Software", icon: "" },
+  { id: "ecommerce", label: "E-commerce", icon: "" },
+  { id: "freelance", label: "Freelance", icon: "" },
+  { id: "retail", label: "Retail", icon: "" },
+  { id: "service", label: "Service Business", icon: "" },
 ];
 
 const TYPE_COLORS: Record<AccountType, string> = {
@@ -177,7 +177,7 @@ export default function ChartOfAccountsClient() {
               <p className="text-xs text-gray-400 truncate">{account.description}</p>
             </div>
             {account.stripeRelevant && (
-              <span className="text-xs text-indigo-500 flex-shrink-0">⚡ Stripe</span>
+              <span className="text-xs text-indigo-500 flex-shrink-0"> Stripe</span>
             )}
           </div>
         ))}

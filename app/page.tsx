@@ -267,9 +267,9 @@ export default function Home() {
           {/* Trust pills */}
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             {[
-              { icon: "🔒", text: "Runs 100% in your browser" },
-              { icon: "⚡", text: "Instant conversion" },
-              { icon: "🆓", text: "Free forever" },
+              { icon: "", text: "Runs 100% in your browser" },
+              { icon: "", text: "Instant conversion" },
+              { icon: "", text: "Free forever" },
               { icon: "✓", text: "No account required" },
             ].map((pill) => (
               <span
@@ -374,17 +374,17 @@ export default function Home() {
         <div className="mx-auto max-w-4xl">
           <div className="grid sm:grid-cols-3 gap-6 text-center text-sm">
             <div className="flex flex-col items-center gap-2">
-              <span className="text-2xl">😩</span>
+              <span className="text-2xl"></span>
               <p className="font-semibold text-slate-800">The problem</p>
               <p className="text-slate-500">Stripe exports 14 columns. QuickBooks needs 6, named differently, with dates in a different format.</p>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <span className="text-2xl">⏱️</span>
+              <span className="text-2xl"></span>
               <p className="font-semibold text-slate-800">What it costs you</p>
               <p className="text-slate-500">2–3 hours every month reformatting CSVs manually. Or $30–100/month for a tool that does it automatically.</p>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <span className="text-2xl">✅</span>
+              <span className="text-2xl"></span>
               <p className="font-semibold text-slate-800">What this does</p>
               <p className="text-slate-500">Maps every column, converts dates, fixes fee formatting, and outputs a QuickBooks-ready file. In 10 seconds. Free.</p>
             </div>
@@ -453,6 +453,44 @@ export default function Home() {
               <input type="file" accept=".csv,.tsv,.xlsx,.xls,.json" onChange={handleInputChange} className="hidden" />
             </label>
             <p className="mt-2 text-xs text-slate-400">No signup · No data stored · Instant download</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FREE TOOLS SECTION ───────────────────────────────────────────── */}
+      <section className="px-4 py-12 sm:px-6 lg:px-8 border-t border-slate-200/80">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-center text-2xl font-bold text-slate-900 mb-2">
+            Free Stripe & QuickBooks Tools
+          </h2>
+          <p className="text-center text-slate-500 text-sm mb-8">
+            Everything you need to manage Stripe payments and QuickBooks bookkeeping
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4">
+            <a href="/tools/stripe-fee-calculator" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors">
+              <p className="font-semibold text-slate-900 text-sm">Stripe Fee Calculator</p>
+              <p className="text-slate-500 text-xs mt-1">Calculate exact fees for any transaction</p>
+            </a>
+            <a href="/tools/stripe-fee-calculator-uk" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors">
+              <p className="font-semibold text-slate-900 text-sm">Stripe Fee Calculator UK</p>
+              <p className="text-slate-500 text-xs mt-1">GBP fees — 1.5% + £0.20 for UK cards</p>
+            </a>
+            <a href="/tools/export-stripe-to-quickbooks" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors">
+              <p className="font-semibold text-slate-900 text-sm">Export Stripe to QuickBooks</p>
+              <p className="text-slate-500 text-xs mt-1">Step-by-step guide + free converter</p>
+            </a>
+            <a href="/tools/stripe-to-xero-converter" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors">
+              <p className="font-semibold text-slate-900 text-sm">Stripe to Xero Converter</p>
+              <p className="text-slate-500 text-xs mt-1">Convert Stripe CSV to Xero format</p>
+            </a>
+            <a href="/tools/stripe-mtd-bridging-formatter" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors">
+              <p className="font-semibold text-slate-900 text-sm">MTD Bridging Formatter</p>
+              <p className="text-slate-500 text-xs mt-1">HMRC compliant — Making Tax Digital</p>
+            </a>
+            <a href="/tools" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors bg-slate-50">
+              <p className="font-semibold text-slate-900 text-sm">View All Free Tools →</p>
+              <p className="text-slate-500 text-xs mt-1">27 free tools for Stripe users</p>
+            </a>
           </div>
         </div>
       </section>

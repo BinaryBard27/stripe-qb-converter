@@ -90,6 +90,10 @@ export default function StripeFeeCalculatorClient() {
   return (
     <div className="space-y-6">
 
+      <p className="text-gray-600 text-sm leading-relaxed mb-6 bg-gray-50 p-4 rounded-lg border border-gray-100">
+        Stripe charges 2.9% + $0.30 per successful card transaction for US businesses on the standard plan. On a $100 sale, Stripe takes $3.20, leaving you $96.80. This calculator shows your exact net payout for any amount — and the reverse: what to charge to receive a specific amount after fees.
+      </p>
+
       {/* ── Mode toggle ── */}
       <div className="flex bg-gray-100 rounded-lg p-1 w-fit">
         <button

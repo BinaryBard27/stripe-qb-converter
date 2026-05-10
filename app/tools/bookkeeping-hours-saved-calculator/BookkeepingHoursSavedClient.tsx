@@ -60,7 +60,7 @@ export default function BookkeepingHoursSavedClient() {
               <div className="flex-1 min-w-0">
                 <p className="text-sm text-gray-700 font-medium">{task.label}</p>
                 {task.automatable && (
-                  <p className="text-xs text-blue-500 mt-0.5">⚡ Automatable</p>
+                  <p className="text-xs text-blue-500 mt-0.5"> Automatable</p>
                 )}
               </div>
               <div className="flex items-center gap-2 flex-shrink-0">

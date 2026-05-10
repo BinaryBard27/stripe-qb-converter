@@ -40,9 +40,9 @@ function parseCSV(text: string): Record<string, string>[] {
 }
 
 const REGION_OPTIONS: { id: Region; label: string; flag: string; dateFormat: string }[] = [
-  { id: "uk", label: "United Kingdom", flag: "🇬🇧", dateFormat: "DD/MM/YYYY" },
-  { id: "us", label: "United States", flag: "🇺🇸", dateFormat: "MM/DD/YYYY" },
-  { id: "au", label: "Australia / NZ", flag: "🇦🇺", dateFormat: "DD/MM/YYYY" },
+  { id: "uk", label: "United Kingdom", flag: "", dateFormat: "DD/MM/YYYY" },
+  { id: "us", label: "United States", flag: "", dateFormat: "MM/DD/YYYY" },
+  { id: "au", label: "Australia / NZ", flag: "", dateFormat: "DD/MM/YYYY" },
 ];
 
 export default function StripeToXeroClient() {
@@ -165,7 +165,7 @@ export default function StripeToXeroClient() {
 
       {error && (
         <div className="flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm text-red-700">
-          <span>⚠</span>{error}
+          <span></span>{error}
         </div>
       )}
 

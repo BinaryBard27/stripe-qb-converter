@@ -2,8 +2,8 @@
 import { useState } from "react";
 
 const CARD_TYPES = [
-  { id: "domestic", label: "🇳🇿 NZ domestic card (Visa/MC/Amex)", pct: 0.027, fixed: 0.30, badge: "2.7% + NZ$0.30" },
-  { id: "international", label: "🌍 International card (non-NZ)", pct: 0.037, fixed: 0.30, badge: "3.7% + NZ$0.30" },
+  { id: "domestic", label: " NZ domestic card (Visa/MC/Amex)", pct: 0.027, fixed: 0.30, badge: "2.7% + NZ$0.30" },
+  { id: "international", label: " International card (non-NZ)", pct: 0.037, fixed: 0.30, badge: "3.7% + NZ$0.30" },
 ];
 
 const GST_RATE = 0.15;
@@ -35,7 +35,7 @@ export default function StripeFeeNZClient() {
     <div className="space-y-6">
 
       <div className="flex items-start gap-2 bg-black/5 border border-gray-200 rounded-lg px-4 py-3 text-sm">
-        <span className="text-xl">🇳🇿</span>
+        <span className="text-xl"></span>
         <div>
           <p className="font-semibold text-gray-800">Stripe New Zealand Pricing 2026</p>
           <p className="text-gray-600 text-xs mt-0.5">Domestic NZ cards: <strong>2.7% + NZ$0.30</strong> · International cards: <strong>3.7% + NZ$0.30</strong> · GST 15% may apply</p>

@@ -2,10 +2,10 @@
 import { useState } from "react";
 
 const REGIONS = [
-  { id: "au_domestic", label: "🇦🇺 Australia — domestic card", pct: 0.017, fixed: 0.30, symbol: "A$", currency: "AUD", badge: "1.7% + A$0.30" },
-  { id: "au_intl", label: "🇦🇺 Australia — international card", pct: 0.035, fixed: 0.30, symbol: "A$", currency: "AUD", badge: "3.5% + A$0.30" },
-  { id: "nz_domestic", label: "🇳🇿 New Zealand — domestic card", pct: 0.027, fixed: 0.30, symbol: "NZ$", currency: "NZD", badge: "2.7% + NZ$0.30" },
-  { id: "nz_intl", label: "🇳🇿 New Zealand — international card", pct: 0.037, fixed: 0.30, symbol: "NZ$", currency: "NZD", badge: "3.7% + NZ$0.30" },
+  { id: "au_domestic", label: " Australia — domestic card", pct: 0.017, fixed: 0.30, symbol: "A$", currency: "AUD", badge: "1.7% + A$0.30" },
+  { id: "au_intl", label: " Australia — international card", pct: 0.035, fixed: 0.30, symbol: "A$", currency: "AUD", badge: "3.5% + A$0.30" },
+  { id: "nz_domestic", label: " New Zealand — domestic card", pct: 0.027, fixed: 0.30, symbol: "NZ$", currency: "NZD", badge: "2.7% + NZ$0.30" },
+  { id: "nz_intl", label: " New Zealand — international card", pct: 0.037, fixed: 0.30, symbol: "NZ$", currency: "NZD", badge: "3.7% + NZ$0.30" },
 ];
 
 function fmt(n: number, symbol: string) { return symbol + n.toFixed(2); }
@@ -37,7 +37,7 @@ export default function StripeFeeAustraliaClient() {
 
       {/* AU notice */}
       <div className="flex items-start gap-2 bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 text-sm">
-        <span className="text-xl">🇦🇺</span>
+        <span className="text-xl"></span>
         <div>
           <p className="font-semibold text-blue-800">Stripe Australia Pricing 2026</p>
           <p className="text-blue-700 text-xs mt-0.5">Domestic cards: <strong>1.7% + A$0.30</strong> · International cards: <strong>3.5% + A$0.30</strong> · GST may apply</p>

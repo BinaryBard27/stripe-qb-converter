@@ -31,10 +31,10 @@ function parseCSV(text: string): Record<string, string>[] {
 }
 
 const BANKS = [
-  { id: "natwest", label: "NatWest", flag: "🏦" },
-  { id: "rbs", label: "Royal Bank of Scotland", flag: "🏦" },
-  { id: "mettle", label: "Mettle", flag: "🏦" },
-  { id: "other", label: "Other FreeAgent user", flag: "📊" },
+  { id: "natwest", label: "NatWest", flag: "" },
+  { id: "rbs", label: "Royal Bank of Scotland", flag: "" },
+  { id: "mettle", label: "Mettle", flag: "" },
+  { id: "other", label: "Other FreeAgent user", flag: "" },
 ];
 
 export default function StripeToFreeAgentClient() {
@@ -109,7 +109,7 @@ export default function StripeToFreeAgentClient() {
 
       {/* FreeAgent notice */}
       <div className="bg-green-50 border border-green-200 rounded-lg px-4 py-3 text-sm">
-        <p className="font-semibold text-green-800 mb-1">🏦 Free for NatWest, RBS & Mettle customers</p>
+        <p className="font-semibold text-green-800 mb-1"> Free for NatWest, RBS & Mettle customers</p>
         <p className="text-green-700 text-xs">FreeAgent is included free with NatWest, RBS, Ulster Bank and Mettle business accounts. This tool converts your Stripe CSV to FreeAgent's bank import format.</p>
       </div>
 

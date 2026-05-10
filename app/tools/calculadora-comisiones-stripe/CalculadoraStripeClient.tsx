@@ -2,11 +2,11 @@
 import { useState } from "react";
 
 const REGIONES = [
-  { id: "us", label: "🇺🇸 Estados Unidos", pct: 0.029, fixed: 0.30, currency: "$", symbol: "USD" },
-  { id: "eu", label: "🇪🇺 Europa / España", pct: 0.015, fixed: 0.25, currency: "€", symbol: "EUR" },
-  { id: "eu_intl", label: "🌍 Tarjeta internacional (EU)", pct: 0.025, fixed: 0.25, currency: "€", symbol: "EUR" },
-  { id: "mx", label: "🇲🇽 México", pct: 0.036, fixed: 3.00, currency: "$", symbol: "MXN" },
-  { id: "br", label: "🇧🇷 Brasil", pct: 0.0399, fixed: 0.39, currency: "R$", symbol: "BRL" },
+  { id: "us", label: " Estados Unidos", pct: 0.029, fixed: 0.30, currency: "$", symbol: "USD" },
+  { id: "eu", label: " Europa / España", pct: 0.015, fixed: 0.25, currency: "€", symbol: "EUR" },
+  { id: "eu_intl", label: " Tarjeta internacional (EU)", pct: 0.025, fixed: 0.25, currency: "€", symbol: "EUR" },
+  { id: "mx", label: " México", pct: 0.036, fixed: 3.00, currency: "$", symbol: "MXN" },
+  { id: "br", label: " Brasil", pct: 0.0399, fixed: 0.39, currency: "R$", symbol: "BRL" },
 ];
 
 function fmtCurrency(n: number, symbol: string) {

@@ -2,9 +2,9 @@
 import { useState } from "react";
 
 const CARD_TYPES = [
-  { id: "domestic", label: "🇨🇦 Domestic Canadian card", pct: 0.029, fixed: 0.30, badge: "2.9% + CA$0.30" },
-  { id: "international", label: "🌍 International card (non-CA)", pct: 0.039, fixed: 0.30, badge: "3.9% + CA$0.30" },
-  { id: "amex", label: "💳 American Express", pct: 0.029, fixed: 0.30, badge: "2.9% + CA$0.30" },
+  { id: "domestic", label: " Domestic Canadian card", pct: 0.029, fixed: 0.30, badge: "2.9% + CA$0.30" },
+  { id: "international", label: " International card (non-CA)", pct: 0.039, fixed: 0.30, badge: "3.9% + CA$0.30" },
+  { id: "amex", label: " American Express", pct: 0.029, fixed: 0.30, badge: "2.9% + CA$0.30" },
 ];
 
 const PROVINCES = [
@@ -51,7 +51,7 @@ export default function StripeFeeCanadaClient() {
 
       {/* CA notice */}
       <div className="flex items-start gap-2 bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm">
-        <span className="text-xl">🇨🇦</span>
+        <span className="text-xl"></span>
         <div>
           <p className="font-semibold text-red-800">Stripe Canada Pricing 2026</p>
           <p className="text-red-700 text-xs mt-0.5">Domestic cards: <strong>2.9% + CA$0.30</strong> · International: <strong>3.9% + CA$0.30</strong> · HST/GST may apply</p>

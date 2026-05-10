@@ -2,9 +2,9 @@
 import { useState } from "react";
 
 const CARD_TYPES = [
-  { id: "domestic", label: "🇸🇬 Singapore domestic card", pct: 0.034, fixed: 0, badge: "3.4%" },
-  { id: "international", label: "🌍 International card (non-SG)", pct: 0.039, fixed: 0, badge: "3.9%" },
-  { id: "amex", label: "💳 American Express", pct: 0.034, fixed: 0, badge: "3.4%" },
+  { id: "domestic", label: " Singapore domestic card", pct: 0.034, fixed: 0, badge: "3.4%" },
+  { id: "international", label: " International card (non-SG)", pct: 0.039, fixed: 0, badge: "3.9%" },
+  { id: "amex", label: " American Express", pct: 0.034, fixed: 0, badge: "3.4%" },
 ];
 
 const GST_RATE = 0.09;
@@ -36,7 +36,7 @@ export default function StripeFeeSGClient() {
     <div className="space-y-6">
 
       <div className="flex items-start gap-2 bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm">
-        <span className="text-xl">🇸🇬</span>
+        <span className="text-xl"></span>
         <div>
           <p className="font-semibold text-red-800">Stripe Singapore Pricing 2026</p>
           <p className="text-red-700 text-xs mt-0.5">Domestic SG cards: <strong>3.4%</strong> (no fixed fee) · International cards: <strong>3.9%</strong> · GST 9% may apply</p>

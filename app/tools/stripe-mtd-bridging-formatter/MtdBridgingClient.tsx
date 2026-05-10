@@ -139,7 +139,7 @@ export default function MtdBridgingClient() {
 
       {/* MTD notice */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 text-sm">
-        <p className="font-semibold text-blue-800 mb-1">🇬🇧 Making Tax Digital — April 2026</p>
+        <p className="font-semibold text-blue-800 mb-1"> Making Tax Digital — April 2026</p>
         <p className="text-blue-700 text-xs">Required for UK sole traders &amp; landlords with gross income over £50,000. This tool formats your Stripe data for MTD-compatible bridging software.</p>
       </div>
 

@@ -46,7 +46,7 @@ export default function VatThresholdClient() {
 
       {/* UK notice */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 text-sm">
-        <p className="font-semibold text-blue-800">🇬🇧 UK VAT Threshold 2026: £90,000</p>
+        <p className="font-semibold text-blue-800"> UK VAT Threshold 2026: £90,000</p>
         <p className="text-blue-700 text-xs mt-0.5">Any 12-month rolling period of taxable turnover. Updated April 2024, applies through 2026-27.</p>
       </div>
 
@@ -99,12 +99,12 @@ export default function VatThresholdClient() {
       <div className={`border rounded-xl px-5 py-4 ${statusColor}`}>
         {exceedsThreshold ? (
           <>
-            <p className="font-bold text-lg mb-1">⚠️ VAT Registration Required</p>
+            <p className="font-bold text-lg mb-1"> VAT Registration Required</p>
             <p className="text-sm">Your 12-month turnover of <strong>{fmt(trailing12)}</strong> exceeds the £90,000 threshold. You must register for VAT with HMRC within 30 days of the month you exceeded the threshold.</p>
           </>
         ) : pct >= 80 ? (
           <>
-            <p className="font-bold text-lg mb-1">⚡ Approaching Threshold</p>
+            <p className="font-bold text-lg mb-1"> Approaching Threshold</p>
             <p className="text-sm">You're at <strong>{pct.toFixed(0)}%</strong> of the threshold. Only <strong>{fmt(remaining)}</strong> more before you must register. Start preparing now.</p>
           </>
         ) : (
