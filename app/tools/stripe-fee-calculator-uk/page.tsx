@@ -4,9 +4,9 @@ import ToolLayout from "@/components/ToolLayout";
 import StripeFeesUKClient from "./StripeFeesUKClient";
 
 export const metadata: Metadata = {
-  title: "Stripe Fee Calculator UK — Calculate Stripe Fees in GBP (£)",
+  title: "Stripe Fee Calculator UK 2026 — 1.5% + 20p | Free GBP Calculator",
   description:
-    "Calculate Stripe processing fees for UK businesses in GBP. Stripe UK charges 1.5% + 20p for UK cards and 2.5% + 20p for international cards. Free, instant, no signup.",
+    "Calculate Stripe UK fees in GBP. 1.5% + £0.20 for UK cards, 2.5% + £0.20 for international. See net payout instantly. Free, HMRC compliant, no signup.",
   keywords: [
     "stripe fee calculator uk",
     "stripe fees uk",

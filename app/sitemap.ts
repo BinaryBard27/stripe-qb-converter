@@ -25,6 +25,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "stripe-currency-conversion-calculator",
     "stripe-subscription-cost-calculator",
     "vat-threshold-calculator-uk",
+    "stripe-fee-calculator-new-zealand",
+    "stripe-fee-calculator-singapore",
+    "export-stripe-to-quickbooks",
   ];
 
   const toolUrls = toolSlugs.map((slug) => ({

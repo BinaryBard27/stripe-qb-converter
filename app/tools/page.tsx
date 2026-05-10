@@ -159,6 +159,24 @@ const tools = [
     description: "See if your UK business needs to register for VAT. Updated for the £90,000 threshold.",
     icon: "🇬🇧",
   },
+  {
+    slug: "stripe-fee-calculator-new-zealand",
+    name: "Stripe Fee Calculator New Zealand",
+    description: "Calculate Stripe fees for NZ businesses in NZD. 2.7% + NZ$0.30 for domestic cards. Free, instant.",
+    icon: "🇳🇿",
+  },
+  {
+    slug: "stripe-fee-calculator-singapore",
+    name: "Stripe Fee Calculator Singapore",
+    description: "Calculate Stripe fees for Singapore businesses in SGD. 3.4% for domestic cards. Free, instant.",
+    icon: "🇸🇬",
+  },
+  {
+    slug: "export-stripe-to-quickbooks",
+    name: "Export Stripe to QuickBooks — Complete Guide",
+    description: "Step-by-step guide to exporting Stripe transactions to QuickBooks with a free instant converter.",
+    icon: "📤",
+  },
 ];
 
 // Coming soon — shows as greyed placeholders (good for SEO crawl signals)

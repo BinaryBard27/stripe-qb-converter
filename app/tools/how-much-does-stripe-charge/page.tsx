@@ -4,9 +4,9 @@ import ToolLayout from "@/components/ToolLayout";
 import HowMuchStripeChargesClient from "./HowMuchStripeChargesClient";
 
 export const metadata: Metadata = {
-  title: "How Much Does Stripe Charge? — Complete Fee Calculator 2026",
+  title: "How Much Does Stripe Charge? — Complete Fee Guide 2026 | Free Calculator",
   description:
-    "See exactly how much Stripe charges for every transaction type — cards, ACH, international, manual entry. Calculate your exact cost with our free Stripe fee calculator.",
+    "Stripe charges 2.9% + $0.30 per transaction. See every Stripe fee explained with a live calculator. Cards, ACH, international, disputes — all covered.",
   keywords: [
     "how much does stripe charge",
     "how much does stripe charge per transaction",
