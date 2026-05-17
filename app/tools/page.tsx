@@ -177,6 +177,24 @@ const tools = [
     description: "Step-by-step guide to exporting Stripe transactions to QuickBooks with a free instant converter.",
     icon: "",
   },
+  {
+    slug: "stripe-fee-calculator-brazil",
+    name: "Calculadora de Taxas Stripe Brasil",
+    description: "Calcule as taxas do Stripe para empresas brasileiras em BRL. 3.99% + R$0,39. Grátis.",
+    icon: "🇧🇷",
+  },
+  {
+    slug: "stripe-fee-calculator-india",
+    name: "Stripe Fee Calculator India",
+    description: "Calculate Stripe fees for Indian businesses in INR. 2% domestic, 3% international. Free.",
+    icon: "🇮🇳",
+  },
+  {
+    slug: "stripe-ach-payment-calculator",
+    name: "Stripe ACH Payment Calculator",
+    description: "Calculate Stripe ACH fees (0.8% capped at $5) and compare savings vs card processing.",
+    icon: "🏦",
+  },
 ];
 
 // Coming soon — shows as greyed placeholders (good for SEO crawl signals)

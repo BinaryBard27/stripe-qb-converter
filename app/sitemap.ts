@@ -28,6 +28,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "stripe-fee-calculator-new-zealand",
     "stripe-fee-calculator-singapore",
     "export-stripe-to-quickbooks",
+    "stripe-fee-calculator-brazil",
+    "stripe-fee-calculator-india",
+    "stripe-ach-payment-calculator",
   ];
 
   const toolUrls = toolSlugs.map((slug) => ({
