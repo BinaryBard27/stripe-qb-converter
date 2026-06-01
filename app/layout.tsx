@@ -50,6 +50,12 @@ export default function RootLayout({
               >
                 Free Tools
               </Link>
+              <Link 
+                href="/blog" 
+                className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors"
+              >
+                Blog
+              </Link>
             </nav>
           </div>
         </header>
