@@ -495,6 +495,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── UK TOOLS SECTION ───────────────────────────────────────────── */}
+      <section className="px-4 pb-12 sm:px-6 lg:px-8 border-t border-slate-200/80 pt-12 bg-slate-50/30">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-center text-2xl font-bold text-slate-900 mb-2">
+            🇬🇧 Free Tools for UK Businesses
+          </h2>
+          <p className="text-center text-slate-500 text-sm mb-8">
+            HMRC-compliant tools, VAT calculators, and UK accounting integrations
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4">
+            <a href="/tools/stripe-fee-calculator-uk" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors bg-white">
+              <p className="font-semibold text-slate-900 text-sm">Stripe Fee Calculator UK</p>
+              <p className="text-slate-500 text-xs mt-1">GBP fees — 1.5% + £0.20 for UK cards</p>
+            </a>
+            <a href="/tools/vat-threshold-calculator-uk" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors bg-white">
+              <p className="font-semibold text-slate-900 text-sm">VAT Threshold Calculator</p>
+              <p className="text-slate-500 text-xs mt-1">Check if you need to register for UK VAT</p>
+            </a>
+            <a href="/tools/stripe-mtd-bridging-formatter" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors bg-white">
+              <p className="font-semibold text-slate-900 text-sm">MTD Bridging Formatter</p>
+              <p className="text-slate-500 text-xs mt-1">HMRC compliant — Making Tax Digital</p>
+            </a>
+            <a href="/tools/stripe-to-freeagent-converter" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors bg-white">
+              <p className="font-semibold text-slate-900 text-sm">Stripe to FreeAgent Converter</p>
+              <p className="text-slate-500 text-xs mt-1">Convert Stripe CSV for FreeAgent</p>
+            </a>
+            <a href="/tools/stripe-to-xero-converter" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors bg-white">
+              <p className="font-semibold text-slate-900 text-sm">Stripe to Xero Converter</p>
+              <p className="text-slate-500 text-xs mt-1">Convert Stripe CSV to Xero format</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── DEMO VIDEO ───────────────────────────────────────────────────── */}
       <section className="border-t border-slate-200/80 bg-slate-50/50 px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
