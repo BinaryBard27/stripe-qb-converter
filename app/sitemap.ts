@@ -3,6 +3,7 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   const toolSlugs = [
     "stripe-fee-calculator",
+    "stripe-payout-calculator",
     "quickbooks-import-error-checker",
     "stripe-refund-impact-calculator",
     "stripe-vs-paypal-fee-comparison",
