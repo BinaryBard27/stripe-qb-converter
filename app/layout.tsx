@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
-import Image from "next/image";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,13 +32,6 @@ export default function RootLayout({
         <header className="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 group">
-              <Image 
-                src="/logo.png" 
-                alt="Logo" 
-                width={32} 
-                height={32} 
-                className="rounded-md object-contain"
-              />
               <span className="font-bold text-lg text-slate-900 group-hover:text-indigo-600 transition-colors">
                 Stripe2QB
               </span>
