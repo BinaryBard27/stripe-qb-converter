@@ -471,9 +471,21 @@ export default function Home() {
               <p className="font-semibold text-slate-900 text-sm">Stripe Fee Calculator</p>
               <p className="text-slate-500 text-xs mt-1">Calculate exact fees for any transaction</p>
             </a>
+            <a href="/tools/stripe-payout-calculator" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors">
+              <p className="font-semibold text-slate-900 text-sm">Stripe Payout Calculator</p>
+              <p className="text-slate-500 text-xs mt-1">Calculate your net deposit after fees</p>
+            </a>
             <a href="/tools/export-stripe-to-quickbooks" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors">
               <p className="font-semibold text-slate-900 text-sm">Export Stripe to QuickBooks</p>
               <p className="text-slate-500 text-xs mt-1">Step-by-step guide + free converter</p>
+            </a>
+            <a href="/tools/quickbooks-import-error-checker" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors">
+              <p className="font-semibold text-slate-900 text-sm">QB Import Error Checker</p>
+              <p className="text-slate-500 text-xs mt-1">Fix CSV import errors automatically</p>
+            </a>
+            <a href="/tools/stripe-revenue-forecaster" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors">
+              <p className="font-semibold text-slate-900 text-sm">Stripe Revenue Forecaster</p>
+              <p className="text-slate-500 text-xs mt-1">Forecast your MRR and growth</p>
             </a>
             <a href="/tools" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors bg-slate-50">
               <p className="font-semibold text-slate-900 text-sm">View All Free Tools →</p>
