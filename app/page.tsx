@@ -471,21 +471,9 @@ export default function Home() {
               <p className="font-semibold text-slate-900 text-sm">Stripe Fee Calculator</p>
               <p className="text-slate-500 text-xs mt-1">Calculate exact fees for any transaction</p>
             </a>
-            <a href="/tools/stripe-fee-calculator-uk" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors">
-              <p className="font-semibold text-slate-900 text-sm">Stripe Fee Calculator UK</p>
-              <p className="text-slate-500 text-xs mt-1">GBP fees — 1.5% + £0.20 for UK cards</p>
-            </a>
             <a href="/tools/export-stripe-to-quickbooks" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors">
               <p className="font-semibold text-slate-900 text-sm">Export Stripe to QuickBooks</p>
               <p className="text-slate-500 text-xs mt-1">Step-by-step guide + free converter</p>
-            </a>
-            <a href="/tools/stripe-to-xero-converter" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors">
-              <p className="font-semibold text-slate-900 text-sm">Stripe to Xero Converter</p>
-              <p className="text-slate-500 text-xs mt-1">Convert Stripe CSV to Xero format</p>
-            </a>
-            <a href="/tools/stripe-mtd-bridging-formatter" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors">
-              <p className="font-semibold text-slate-900 text-sm">MTD Bridging Formatter</p>
-              <p className="text-slate-500 text-xs mt-1">HMRC compliant — Making Tax Digital</p>
             </a>
             <a href="/tools" className="border border-slate-200 rounded-xl p-4 hover:border-indigo-400 transition-colors bg-slate-50">
               <p className="font-semibold text-slate-900 text-sm">View All Free Tools →</p>
