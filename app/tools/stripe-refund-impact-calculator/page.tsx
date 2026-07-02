@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeRefundImpactClient from "./StripeRefundImpactClient";
+import { FaqSchema } from "@/components/FaqSchema";
 
 export const metadata: Metadata = {
   title: "Stripe Refund Impact Calculator — True Cost of Stripe Refunds",
@@ -53,16 +54,6 @@ const faqs = [
   },
 ];
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
-
 const toolSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -77,7 +68,7 @@ const toolSchema = {
 export default function StripeRefundImpactPage() {
   return (
     <>
-      <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <FaqSchema faqs={faqs} />
       <Script id="tool-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }} />
       <ToolLayout
         title="Stripe Refund Impact Calculator"

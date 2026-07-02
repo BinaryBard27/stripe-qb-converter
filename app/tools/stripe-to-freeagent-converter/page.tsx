@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeToFreeAgentClient from "./StripeToFreeAgentClient";
+import { FaqSchema } from "@/components/FaqSchema";
 
 export const metadata: Metadata = {
   title: "Stripe to FreeAgent CSV Converter — Free Tool for NatWest & RBS Users",
@@ -51,20 +52,10 @@ const faqs = [
   },
 ];
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
-
 export default function StripeToFreeAgentPage() {
   return (
     <>
-      <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <FaqSchema faqs={faqs} />
       <ToolLayout
         title="Stripe to FreeAgent CSV Converter"
         description="Convert your Stripe export to FreeAgent's bank import format. Perfect for NatWest, RBS, and Mettle customers who use FreeAgent free with their business account."

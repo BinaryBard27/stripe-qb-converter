@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import VatThresholdClient from "./VatThresholdClient";
+import { FaqSchema } from "@/components/FaqSchema";
 
 export const metadata: Metadata = {
   title: "UK VAT Threshold Calculator 2026 — Do I Need to Register for VAT?",
@@ -49,20 +50,10 @@ const faqs = [
   },
 ];
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
-
 export default function VatThresholdPage() {
   return (
     <>
-      <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <FaqSchema faqs={faqs} />
       <ToolLayout
         title="UK VAT Threshold Calculator 2026"
         description="Enter your monthly revenue to see if you're approaching the £90,000 VAT registration threshold — and when you'll need to register."

@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeFeeCalculatorClient from "./StripeFeeCalculatorClient";
+import { FaqSchema } from "@/components/FaqSchema";
 
 export const metadata: Metadata = {
   title: "Stripe Fee Calculator 2026 — Calculate 2.9% + $0.30 Fees | Free",
@@ -60,15 +61,7 @@ const faqs = [
 ];
 
 // JSON-LD structured data — makes Google show FAQ rich results in search
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
-};
+
 
 const toolSchema = {
   "@context": "https://schema.org",
@@ -85,11 +78,7 @@ export default function StripeFeeCalculatorPage() {
   return (
     <>
       {/* Structured data — not visible, read by Google */}
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <FaqSchema faqs={faqs} />
       <Script
         id="tool-schema"
         type="application/ld+json"

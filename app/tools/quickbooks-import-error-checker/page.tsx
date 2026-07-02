@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import QuickBooksImportErrorCheckerClient from "./QuickBooksImportErrorCheckerClient";
+import { FaqSchema } from "@/components/FaqSchema";
 
 export const metadata: Metadata = {
   title: "QuickBooks CSV Import Error Checker — Fix Import Errors Instantly",
@@ -57,15 +58,7 @@ const faqs = [
   },
 ];
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
-};
+
 
 const toolSchema = {
   "@context": "https://schema.org",
@@ -81,11 +74,7 @@ const toolSchema = {
 export default function QuickBooksImportErrorCheckerPage() {
   return (
     <>
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <FaqSchema faqs={faqs} />
       <Script
         id="tool-schema"
         type="application/ld+json"

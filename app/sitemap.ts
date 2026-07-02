@@ -1,38 +1,16 @@
 import { MetadataRoute } from 'next'
+import fs from 'fs'
+import path from 'path'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const toolSlugs = [
-    "stripe-fee-calculator",
-    "stripe-payout-calculator",
-    "quickbooks-import-error-checker",
-    "stripe-refund-impact-calculator",
-    "stripe-vs-paypal-fee-comparison",
-    "bookkeeping-hours-saved-calculator",
-    "annual-bookkeeping-cost-calculator",
-    "stripe-revenue-forecaster",
-    "quickbooks-chart-of-accounts-generator",
-    "csv-column-mapper",
-    "stripe-fee-calculator-uk",
-    "stripe-fee-calculator-australia",
-    "stripe-fee-calculator-canada",
-    "stripe-international-fee-calculator",
-    "stripe-credit-card-fee-calculator",
-    "stripe-processing-fee-calculator",
-    "how-much-does-stripe-charge",
-    "stripe-to-xero-converter",
-    "stripe-mtd-bridging-formatter",
-    "stripe-to-freeagent-converter",
-    "calculadora-comisiones-stripe",
-    "stripe-currency-conversion-calculator",
-    "stripe-subscription-cost-calculator",
-    "vat-threshold-calculator-uk",
-    "stripe-fee-calculator-new-zealand",
-    "stripe-fee-calculator-singapore",
-    "export-stripe-to-quickbooks",
-    "stripe-fee-calculator-brazil",
-    "stripe-fee-calculator-india",
-    "stripe-ach-payment-calculator",
-  ];
+  const toolsDir = path.join(process.cwd(), 'app/tools');
+  
+  // Read all folders in app/tools that have a page.tsx
+  const toolSlugs = fs.readdirSync(toolsDir).filter((file) => {
+    const isDirectory = fs.statSync(path.join(toolsDir, file)).isDirectory();
+    const hasPage = fs.existsSync(path.join(toolsDir, file, 'page.tsx'));
+    return isDirectory && hasPage;
+  });
 
   const toolUrls = toolSlugs.map((slug) => ({
     url: `https://stripe-qb-converter.vercel.app/tools/${slug}`,

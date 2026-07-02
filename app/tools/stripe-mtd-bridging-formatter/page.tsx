@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import MtdBridgingClient from "./MtdBridgingClient";
+import { FaqSchema } from "@/components/FaqSchema";
 
 export const metadata: Metadata = {
   title: "Stripe MTD Bridging Formatter — Making Tax Digital CSV for HMRC",
@@ -51,20 +52,10 @@ const faqs = [
   },
 ];
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
-
 export default function MtdBridgingPage() {
   return (
     <>
-      <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <FaqSchema faqs={faqs} />
       <ToolLayout
         title="Stripe MTD Bridging Formatter"
         description="Convert your Stripe export into MTD-compliant digital records for HMRC. Assigns HMRC expense categories, formats dates correctly, and outputs a bridging-software-ready CSV."
