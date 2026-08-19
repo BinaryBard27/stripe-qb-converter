@@ -198,9 +198,6 @@ const tools = [
 ];
 
 // Coming soon — shows as greyed placeholders (good for SEO crawl signals)
-const comingSoon = [
-  "Stripe Payout Calculator",
-];
 
 export default function ToolsIndexPage() {
   return (
@@ -243,16 +240,6 @@ export default function ToolsIndexPage() {
         ))}
 
         {/* Coming soon placeholders */}
-        {comingSoon.map((name) => (
-          <div
-            key={name}
-            className="border border-dashed border-gray-200 rounded-xl p-6 bg-gray-50"
-          >
-            <div className="text-2xl mb-3 opacity-40"></div>
-            <p className="font-medium text-gray-400 text-sm">{name}</p>
-            <p className="text-xs text-gray-300 mt-1">Coming soon</p>
-          </div>
-        ))}
       </div>
 
       {/* CTA back to main converter */}
