@@ -2,18 +2,7 @@ import { MetadataRoute } from 'next'
 import { posts } from './blog/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const toolSlugs = [
-    'annual-bookkeeping-cost-calculator', 'bookkeeping-hours-saved-calculator', 'calculadora-comisiones-stripe',
-    'csv-column-mapper', 'export-stripe-to-quickbooks', 'how-much-does-stripe-charge',
-    'quickbooks-chart-of-accounts-generator', 'quickbooks-import-error-checker', 'stripe-ach-payment-calculator',
-    'stripe-credit-card-fee-calculator', 'stripe-currency-conversion-calculator', 'stripe-fee-calculator-australia',
-    'stripe-fee-calculator-brazil', 'stripe-fee-calculator-canada', 'stripe-fee-calculator-india',
-    'stripe-fee-calculator-new-zealand', 'stripe-fee-calculator-singapore', 'stripe-fee-calculator-uk',
-    'stripe-fee-calculator', 'stripe-international-fee-calculator', 'stripe-mtd-bridging-formatter',
-    'stripe-payout-calculator', 'stripe-processing-fee-calculator', 'stripe-refund-impact-calculator',
-    'stripe-revenue-forecaster', 'stripe-subscription-cost-calculator', 'stripe-to-freeagent-converter',
-    'stripe-to-xero-converter', 'stripe-vs-paypal-fee-comparison', 'vat-threshold-calculator-uk',
-  ];
+  const toolSlugs = ['stripe-fee-calculator', 'stripe-mtd-bridging-formatter', 'stripe-to-xero-converter', 'quickbooks-import-error-checker'];
   const toolUrls = toolSlugs.map((slug) => ({
     url: `https://stripe-qb-converter.vercel.app/tools/${slug}`,
     lastModified: new Date('2026-09-12'),

@@ -197,6 +197,15 @@ const tools = [
   },
 ];
 
+// Public directory is intentionally focused on Search Console winners and near-winners.
+// Older routes remain reachable for existing links while we validate replacements.
+const ACTIVE_TOOL_SLUGS = new Set([
+  "stripe-fee-calculator",
+  "stripe-mtd-bridging-formatter",
+  "stripe-to-xero-converter",
+  "quickbooks-import-error-checker",
+]);
+
 // Coming soon — shows as greyed placeholders (good for SEO crawl signals)
 
 export default function ToolsIndexPage() {
@@ -215,7 +224,7 @@ export default function ToolsIndexPage() {
 
       {/* Tool grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
-        {tools.map((tool) => (
+        {tools.filter((tool) => ACTIVE_TOOL_SLUGS.has(tool.slug)).map((tool) => (
           <Link
             key={tool.slug}
             href={`/tools/${tool.slug}`}
