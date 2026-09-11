@@ -9,7 +9,7 @@ import StripeFeeCalculatorClient from "./StripeFeeCalculatorClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
 export const metadata: Metadata = {
-  title: "Stripe Fee Calculator 2026 — Calculate 2.9% + $0.30 Fees | Free",
+  title: "Stripe Fee Calculator — Calculate 2.9% + 30¢ Fees Free",
   description:
     "How much does Stripe charge? Enter any amount and see exact fees, net payout, and what to charge to receive a specific amount. Free, instant, no signup.",
   keywords: [
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "stripe transaction fee",
     "stripe processing fee",
     "how much does stripe charge",
-    "stripe fees 2024",
+    "stripe fees 2026",
     "stripe net payout calculator",
     "stripe charge to receive amount",
     "stripe fee percentage",

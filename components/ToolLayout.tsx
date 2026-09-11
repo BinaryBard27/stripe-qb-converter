@@ -54,6 +54,16 @@ export default function ToolLayout({
       {/* CTA — the whole reason this page exists */}
       <ConverterCTA />
 
+      <nav aria-label="Related tools" className="mt-8 border-y border-gray-100 py-5">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">Explore next</p>
+        <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-indigo-600">
+          <Link href="/tools/stripe-fee-calculator">Stripe fee calculator</Link>
+          <Link href="/tools/stripe-mtd-bridging-formatter">MTD formatter</Link>
+          <Link href="/tools/stripe-to-xero-converter">Stripe to Xero</Link>
+          <Link href="/blog">Guides &amp; blogs</Link>
+        </div>
+      </nav>
+
       {/* FAQ section — targets long-tail keywords, eligible for Google rich results */}
       {faqs && faqs.length > 0 && (
         <div className="mt-14">
