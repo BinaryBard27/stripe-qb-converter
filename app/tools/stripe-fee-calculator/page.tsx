@@ -9,10 +9,11 @@ import StripeFeeCalculatorClient from "./StripeFeeCalculatorClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
 export const metadata: Metadata = {
-  title: "Stripe Fee Calculator — Calculate 2.9% + 30¢ Fees Free",
+  title: "Stripe Fees Calculator — Calculate 2.9% + 30¢ Free",
   description:
     "How much does Stripe charge? Enter any amount and see exact fees, net payout, and what to charge to receive a specific amount. Free, instant, no signup.",
   keywords: [
+    "stripe fees calculator",
     "stripe fee calculator",
     "stripe transaction fee",
     "stripe processing fee",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     "stripe fee percentage",
   ],
   openGraph: {
-    title: "Stripe Fee Calculator — Free & Instant",
+    title: "Stripe Fees Calculator — Free & Instant",
     description:
       "Calculate Stripe fees instantly. See your net payout and what to charge to receive a specific amount after fees.",
   },
@@ -66,7 +67,7 @@ const faqs = [
 const toolSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "Stripe Fee Calculator",
+  name: "Stripe Fees Calculator",
   description: metadata.description,
   url: "https://stripe-qb-converter.vercel.app/tools/stripe-fee-calculator",
   applicationCategory: "FinanceApplication",
@@ -86,7 +87,7 @@ export default function StripeFeeCalculatorPage() {
       />
 
       <ToolLayout
-        title="Stripe Fee Calculator"
+        title="Stripe Fees Calculator"
         description="See exactly how much Stripe takes from every transaction — and what you need to charge to receive a specific amount after fees."
         faqs={faqs}
       >
