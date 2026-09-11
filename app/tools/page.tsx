@@ -17,6 +17,22 @@ export const metadata: Metadata = {
 // ── ADD NEW TOOLS HERE — the page builds itself ──────────────────────────────
 const tools = [
   {
+    slug: "stripe-fees-vs-square",
+    name: "Stripe Fees vs Square",
+    description: "Compare estimated Stripe and Square processing fees for online payments.",
+    badge: "New",
+    badgeColor: "bg-indigo-100 text-indigo-700",
+    icon: "",
+  },
+  {
+    slug: "stripe-nonprofit-pricing",
+    name: "Stripe Nonprofit Pricing Checker",
+    description: "Check the basic eligibility signals before requesting Stripe nonprofit pricing.",
+    badge: "New",
+    badgeColor: "bg-indigo-100 text-indigo-700",
+    icon: "",
+  },
+  {
     slug: "stripe-fee-calculator",
     name: "Stripe Fee Calculator",
     description:
@@ -204,6 +220,11 @@ const ACTIVE_TOOL_SLUGS = new Set([
   "stripe-mtd-bridging-formatter",
   "stripe-to-xero-converter",
   "quickbooks-import-error-checker",
+  "stripe-fee-calculator-canada",
+  "stripe-fee-calculator-australia",
+  "stripe-vs-paypal-fee-comparison",
+  "stripe-fees-vs-square",
+  "stripe-nonprofit-pricing",
 ]);
 
 // Coming soon — shows as greyed placeholders (good for SEO crawl signals)

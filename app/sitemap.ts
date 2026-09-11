@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { posts } from './blog/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const toolSlugs = ['stripe-fee-calculator', 'stripe-mtd-bridging-formatter', 'stripe-to-xero-converter', 'quickbooks-import-error-checker'];
+  const toolSlugs = ['stripe-fee-calculator', 'stripe-mtd-bridging-formatter', 'stripe-to-xero-converter', 'quickbooks-import-error-checker', 'stripe-fee-calculator-canada', 'stripe-fee-calculator-australia', 'stripe-vs-paypal-fee-comparison', 'stripe-fees-vs-square', 'stripe-nonprofit-pricing'];
   const toolUrls = toolSlugs.map((slug) => ({
     url: `https://stripe-qb-converter.vercel.app/tools/${slug}`,
     lastModified: new Date('2026-09-12'),
