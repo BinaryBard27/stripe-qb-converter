@@ -1,7 +1,3 @@
-// app/tools/page.tsx
-// Lives at: stripe-qb-converter.vercel.app/tools
-// Add new tool slugs to the `tools` array as you build them.
-
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -14,281 +10,118 @@ export const metadata: Metadata = {
   },
 };
 
-// ── ADD NEW TOOLS HERE — the page builds itself ──────────────────────────────
-const tools = [
-  {
-    slug: "stripe-fees-vs-square",
-    name: "Stripe Fees vs Square",
-    description: "Compare estimated Stripe and Square processing fees for online payments.",
-    badge: "New",
-    badgeColor: "bg-indigo-100 text-indigo-700",
-    icon: "",
-  },
-  {
-    slug: "stripe-nonprofit-pricing",
-    name: "Stripe Nonprofit Pricing Checker",
-    description: "Check the basic eligibility signals before requesting Stripe nonprofit pricing.",
-    badge: "New",
-    badgeColor: "bg-indigo-100 text-indigo-700",
-    icon: "",
-  },
-  {
-    slug: "stripe-fee-calculator",
-    name: "Stripe Fee Calculator",
-    description:
-      "Calculate exactly how much Stripe charges per transaction — and what you need to charge to receive a specific amount after fees.",
-    badge: "Most Popular",
-    badgeColor: "bg-blue-100 text-blue-700",
-    icon: "",
-  },
-  {
-    slug: "quickbooks-import-error-checker",
-    name: "QuickBooks CSV Import Error Checker",
-    description: "Paste your CSV and instantly see why QuickBooks is rejecting it — with specific fixes for each error.",
-    badge: "High Intent",
-    badgeColor: "bg-green-100 text-green-700",
-    icon: "",
-  },
-  {
-    slug: "stripe-refund-impact-calculator",
-    name: "Stripe Refund Impact Calculator",
-    description: "See the true cost of issuing a Stripe refund — Stripe keeps the fee even when you refund.",
-    icon: "",
-  },
-  {
-    slug: "stripe-vs-paypal-fee-comparison",
-    name: "Stripe vs PayPal Fee Comparison",
-    description: "Compare Stripe and PayPal fees side by side — see which processor saves you more money.",
-    icon: "",
-  },
-  {
-    slug: "bookkeeping-hours-saved-calculator",
-    name: "Bookkeeping Hours Saved Calculator",
-    description: "Calculate how many hours bookkeeping costs you monthly and how much automation could save.",
-    icon: "",
-  },
-  {
-    slug: "annual-bookkeeping-cost-calculator",
-    name: "Annual Bookkeeping Cost Calculator",
-    description: "Compare the true annual cost of DIY bookkeeping vs hiring a bookkeeper vs software.",
-    icon: "",
-  },
-  {
-    slug: "stripe-revenue-forecaster",
-    name: "Stripe Revenue Forecaster",
-    description: "Project your Stripe revenue for the next 12 months based on current MRR and growth rate.",
-    icon: "",
-  },
-  {
-    slug: "quickbooks-chart-of-accounts-generator",
-    name: "QuickBooks Chart of Accounts Generator",
-    description: "Generate a ready-to-import QuickBooks chart of accounts template for your business type.",
-    icon: "",
-  },
-  {
-    slug: "csv-column-mapper",
-    name: "CSV Column Mapper",
-    description: "Paste any CSV, rename columns to match QuickBooks format, and download the fixed file.",
-    icon: "",
-  },
-  {
-    slug: "stripe-fee-calculator-uk",
-    name: "Stripe Fee Calculator UK",
-    description: "Calculate Stripe fees for UK businesses in GBP — with UK card rates (1.5% + 20p).",
-    icon: "",
-  },
-  {
-    slug: "stripe-fee-calculator-australia",
-    name: "Stripe Fee Calculator Australia",
-    description: "Calculate Stripe fees for Australian businesses in AUD. Includes NZD and GST options.",
-    icon: "",
-  },
-  {
-    slug: "stripe-fee-calculator-canada",
-    name: "Stripe Fee Calculator Canada",
-    description: "Calculate Stripe fees for Canadian businesses in CAD. Includes HST/GST by province.",
-    icon: "",
-  },
-  {
-    slug: "stripe-international-fee-calculator",
-    name: "Stripe International Fee Calculator",
-    description: "Calculate Stripe fees for international and cross-border transactions with currency conversion.",
-    icon: "",
-  },
-  {
-    slug: "stripe-credit-card-fee-calculator",
-    name: "Stripe Credit Card Fee Calculator",
-    description: "Compare Stripe fees by card type — Visa, Mastercard, Amex, international cards.",
-    icon: "",
-  },
-  {
-    slug: "stripe-processing-fee-calculator",
-    name: "Stripe Processing Fee Calculator",
-    description: "Calculate Stripe processing fees with monthly volume projections and annual totals.",
-    icon: "",
-  },
-  {
-    slug: "how-much-does-stripe-charge",
-    name: "How Much Does Stripe Charge?",
-    description: "Complete Stripe fee guide — every charge explained with a live calculator.",
-    icon: "",
-  },
-  {
-    slug: "stripe-to-xero-converter",
-    name: "Stripe to Xero Converter",
-    description: "Convert your Stripe CSV export to Xero bank import format. HMRC compliant, free, no signup.",
-    icon: "",
-  },
-  {
-    slug: "stripe-mtd-bridging-formatter",
-    name: "Stripe MTD Bridging Formatter",
-    description: "Format Stripe transactions for Making Tax Digital (MTD) compliance. HMRC recognised, free.",
-    icon: "",
-  },
-  {
-    slug: "stripe-to-freeagent-converter",
-    name: "Stripe to FreeAgent Converter",
-    description: "Convert Stripe CSV to FreeAgent import format. Free for NatWest, RBS and Mettle customers.",
-    icon: "",
-  },
-  {
-    slug: "calculadora-comisiones-stripe",
-    name: "Calculadora de Comisiones Stripe",
-    description: "Calcula exactamente cuánto cobra Stripe por transacción. Gratis, sin registro.",
-    icon: "",
-  },
-  {
-    slug: "stripe-currency-conversion-calculator",
-    name: "Stripe Currency Conversion Calculator",
-    description: "Calculate Stripe fees for multi-currency transactions including the 1% conversion fee.",
-    icon: "",
-  },
-  {
-    slug: "stripe-subscription-cost-calculator",
-    name: "Stripe Subscription Cost Calculator",
-    description: "Calculate Stripe fees for monthly vs annual plans. Find the most cost-efficient billing frequency.",
-    icon: "",
-  },
-  {
-    slug: "vat-threshold-calculator-uk",
-    name: "UK VAT Threshold Calculator",
-    description: "See if your UK business needs to register for VAT. Updated for the £90,000 threshold.",
-    icon: "",
-  },
-  {
-    slug: "stripe-fee-calculator-new-zealand",
-    name: "Stripe Fee Calculator New Zealand",
-    description: "Calculate Stripe fees for NZ businesses in NZD. 2.7% + NZ$0.30 for domestic cards. Free, instant.",
-    icon: "",
-  },
-  {
-    slug: "stripe-fee-calculator-singapore",
-    name: "Stripe Fee Calculator Singapore",
-    description: "Calculate Stripe fees for Singapore businesses in SGD. 3.4% for domestic cards. Free, instant.",
-    icon: "",
-  },
-  {
-    slug: "export-stripe-to-quickbooks",
-    name: "Export Stripe to QuickBooks — Complete Guide",
-    description: "Step-by-step guide to exporting Stripe transactions to QuickBooks with a free instant converter.",
-    icon: "",
-  },
-  {
-    slug: "stripe-fee-calculator-brazil",
-    name: "Calculadora de Taxas Stripe Brasil",
-    description: "Calcule as taxas do Stripe para empresas brasileiras em BRL. 3.99% + R$0,39. Grátis.",
-    icon: "🇧🇷",
-  },
-  {
-    slug: "stripe-fee-calculator-india",
-    name: "Stripe Fee Calculator India",
-    description: "Calculate Stripe fees for Indian businesses in INR. 2% domestic, 3% international. Free.",
-    icon: "🇮🇳",
-  },
-  {
-    slug: "stripe-ach-payment-calculator",
-    name: "Stripe ACH Payment Calculator",
-    description: "Calculate Stripe ACH fees (0.8% capped at $5) and compare savings vs card processing.",
-    icon: "🏦",
-  },
+type Tool = {
+  slug: string;
+  name: string;
+  description: string;
+  icon: string;
+  badge?: string;
+  tone: string;
+};
+
+const calculators: Tool[] = [
+  { slug: "stripe-fee-calculator", name: "Stripe Fee Calculator", description: "Work out the fee and the amount to charge to get paid in full.", icon: "%", badge: "Most popular", tone: "violet" },
+  { slug: "stripe-fees-vs-square", name: "Stripe Fees vs Square", description: "Compare estimated processing fees for online payments.", icon: "⇄", badge: "New", tone: "blue" },
+  { slug: "stripe-vs-paypal-fee-comparison", name: "Stripe vs PayPal Fees", description: "See which payment processor keeps more money in your business.", icon: "↔", tone: "orange" },
+  { slug: "stripe-refund-impact-calculator", name: "Refund Impact Calculator", description: "See the true cost of refunding a Stripe payment.", icon: "↩", tone: "rose" },
+  { slug: "stripe-processing-fee-calculator", name: "Processing Fee Calculator", description: "Project fees across monthly volume and annual totals.", icon: "▥", tone: "blue" },
+  { slug: "stripe-credit-card-fee-calculator", name: "Credit Card Fee Calculator", description: "Compare fees by card type, including Amex and international cards.", icon: "▣", tone: "violet" },
+  { slug: "stripe-international-fee-calculator", name: "International Fee Calculator", description: "Estimate cross-border and currency conversion charges.", icon: "◎", tone: "teal" },
+  { slug: "stripe-currency-conversion-calculator", name: "Currency Conversion Calculator", description: "Calculate fees for multi-currency Stripe transactions.", icon: "◌", tone: "green" },
+  { slug: "stripe-subscription-cost-calculator", name: "Subscription Cost Calculator", description: "Compare the cost of monthly and annual billing plans.", icon: "◷", tone: "orange" },
+  { slug: "stripe-revenue-forecaster", name: "Stripe Revenue Forecaster", description: "Project the next 12 months from MRR and growth rate.", icon: "↗", tone: "green" },
+  { slug: "bookkeeping-hours-saved-calculator", name: "Hours Saved Calculator", description: "See how much time bookkeeping automation could save.", icon: "◴", tone: "teal" },
+  { slug: "annual-bookkeeping-cost-calculator", name: "Annual Bookkeeping Cost", description: "Compare DIY, bookkeeper, and software costs.", icon: "⌁", tone: "blue" },
+  { slug: "stripe-nonprofit-pricing", name: "Nonprofit Pricing Checker", description: "Check basic signals before requesting nonprofit pricing.", icon: "♡", badge: "New", tone: "rose" },
+  { slug: "stripe-ach-payment-calculator", name: "ACH Payment Calculator", description: "Calculate ACH fees and compare savings against card payments.", icon: "🏦", tone: "green" },
+  { slug: "how-much-does-stripe-charge", name: "How Much Does Stripe Charge?", description: "A complete guide to Stripe fees with a live calculator.", icon: "?", tone: "violet" },
+  { slug: "calculadora-comisiones-stripe", name: "Calculadora de Comisiones Stripe", description: "Calcula las comisiones de Stripe por transacción.", icon: "%", tone: "orange" },
+  { slug: "stripe-fee-calculator-uk", name: "Stripe Fee Calculator UK", description: "Calculate Stripe fees in GBP with UK card rates.", icon: "£", tone: "blue" },
+  { slug: "stripe-fee-calculator-australia", name: "Stripe Fee Calculator Australia", description: "Calculate Stripe fees in AUD with GST options.", icon: "A$", tone: "teal" },
+  { slug: "stripe-fee-calculator-canada", name: "Stripe Fee Calculator Canada", description: "Calculate Stripe fees in CAD with provincial tax options.", icon: "C$", tone: "rose" },
+  { slug: "stripe-fee-calculator-new-zealand", name: "Stripe Fee Calculator New Zealand", description: "Calculate Stripe fees in NZD for domestic cards.", icon: "NZ$", tone: "green" },
+  { slug: "stripe-fee-calculator-singapore", name: "Stripe Fee Calculator Singapore", description: "Calculate Stripe fees in SGD for Singapore businesses.", icon: "S$", tone: "violet" },
+  { slug: "stripe-fee-calculator-india", name: "Stripe Fee Calculator India", description: "Calculate Stripe fees in INR for domestic and international cards.", icon: "₹", tone: "orange" },
+  { slug: "stripe-fee-calculator-brazil", name: "Calculadora de Taxas Stripe Brasil", description: "Calcule as taxas do Stripe para empresas brasileiras em BRL.", icon: "R$", tone: "green" },
 ];
 
-// Public directory is intentionally focused on Search Console winners and near-winners.
-// Older routes remain reachable for existing links while we validate replacements.
-const ACTIVE_TOOL_SLUGS = new Set([
-  "stripe-fee-calculator",
-  "stripe-mtd-bridging-formatter",
-  "stripe-to-xero-converter",
-  "quickbooks-import-error-checker",
-  "stripe-fee-calculator-canada",
-  "stripe-fee-calculator-australia",
-  "stripe-vs-paypal-fee-comparison",
-  "stripe-fees-vs-square",
-  "stripe-nonprofit-pricing",
-]);
+const converters: Tool[] = [
+  { slug: "stripe-to-xero-converter", name: "Stripe to Xero Converter", description: "Turn a Stripe export into a Xero-ready bank import file.", icon: "↗", badge: "Popular", tone: "blue" },
+  { slug: "stripe-to-freeagent-converter", name: "Stripe to FreeAgent Converter", description: "Convert Stripe CSV data into FreeAgent import format.", icon: "↗", tone: "teal" },
+  { slug: "stripe-mtd-bridging-formatter", name: "MTD Bridging Formatter", description: "Format Stripe transactions for Making Tax Digital.", icon: "⌘", tone: "violet" },
+  { slug: "csv-column-mapper", name: "CSV Column Mapper", description: "Rename columns and download a QuickBooks-ready CSV.", icon: "▤", tone: "orange" },
+  { slug: "quickbooks-chart-of-accounts-generator", name: "Chart of Accounts Generator", description: "Generate a QuickBooks import template for your business.", icon: "▦", tone: "green" },
+  { slug: "bank-statement-to-excel", name: "Bank Statement to Excel", description: "Turn a bank statement into a clean spreadsheet.", icon: "▤", tone: "blue" },
+];
 
-// Coming soon — shows as greyed placeholders (good for SEO crawl signals)
+const errorChecking: Tool[] = [
+  { slug: "quickbooks-import-error-checker", name: "QuickBooks Import Error Checker", description: "Find why QuickBooks rejects your CSV and get a specific fix.", icon: "✓", badge: "High intent", tone: "green" },
+];
+
+function ToolCard({ tool }: { tool: Tool }) {
+  return (
+    <Link href={`/tools/${tool.slug}`} className="hub-tool-card group">
+      <div className={`hub-tool-icon hub-tool-icon-${tool.tone}`} aria-hidden="true">{tool.icon}</div>
+      <div className="hub-tool-card-body">
+        <div className="hub-tool-card-title-row">
+          <h3>{tool.name}</h3>
+          {tool.badge && <span className="hub-tool-badge">{tool.badge}</span>}
+        </div>
+        <p>{tool.description}</p>
+        <span className="hub-tool-arrow" aria-hidden="true">↗</span>
+      </div>
+    </Link>
+  );
+}
+
+function ToolSection({ title, eyebrow, tools }: { title: string; eyebrow: string; tools: Tool[] }) {
+  return (
+    <section className="hub-section" aria-labelledby={`${title}-heading`}>
+      <div className="hub-section-heading">
+        <div>
+          <span className="hub-eyebrow">{eyebrow}</span>
+          <h2 id={`${title}-heading`}>{title}</h2>
+        </div>
+        <span className="hub-count">{tools.length} tools</span>
+      </div>
+      <div className="hub-tool-grid">{tools.map((tool) => <ToolCard key={tool.slug} tool={tool} />)}</div>
+    </section>
+  );
+}
 
 export default function ToolsIndexPage() {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
-
-      {/* Hero */}
-      <div className="text-center mb-16">
-        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-          Free Stripe & QuickBooks Tools
-        </h1>
-        <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-          No signups. No ads. No data stored. Just paste and go.
-        </p>
-      </div>
-
-      {/* Tool grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
-        {tools.filter((tool) => ACTIVE_TOOL_SLUGS.has(tool.slug)).map((tool) => (
-          <Link
-            key={tool.slug}
-            href={`/tools/${tool.slug}`}
-            className="group border border-gray-200 rounded-xl p-6 hover:border-blue-600 hover:shadow-md transition-all duration-150 bg-white"
-          >
-            <div className="flex items-start justify-between mb-3">
-              <span className="text-3xl">{tool.icon}</span>
-              {tool.badge && (
-                <span
-                  className={`text-xs font-medium px-2 py-0.5 rounded-full ${tool.badgeColor}`}
-                >
-                  {tool.badge}
-                </span>
-              )}
-            </div>
-            <h2 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">              {tool.name}
-            </h2>
-            <p className="text-sm text-gray-500 leading-relaxed">
-              {tool.description}
-            </p>
+    <div className="tools-hub-page">
+      <div className="tools-hub-wrap">
+        <section className="hub-hero" aria-labelledby="tools-heading">
+          <div className="hub-hero-copy">
+            <span className="hub-eyebrow"><span className="hub-eyebrow-dot" /> Free tools for Stripe + QuickBooks</span>
+            <h1 id="tools-heading">Pick a tool.<br /><em>Get unstuck.</em></h1>
+            <p>Fast, focused tools for fees, files, and financial admin. No sign-up and no data stored.</p>
+          </div>
+          <Link href="/" className="hub-primary-action">
+            <span className="hub-primary-icon">↗</span>
+            <span><strong>Start with the Stripe → QuickBooks converter</strong><small>Turn your export into an import-ready file</small></span>
+            <span className="hub-primary-arrow">→</span>
           </Link>
-        ))}
+        </section>
 
-        {/* Coming soon placeholders */}
-      </div>
+        <nav className="hub-category-nav" aria-label="Tool categories">
+          <a href="#calculators">Calculators <span>{calculators.length}</span></a>
+          <a href="#converters">Converters <span>{converters.length}</span></a>
+          <a href="#error-checking">Error checking <span>{errorChecking.length}</span></a>
+        </nav>
 
-      {/* CTA back to main converter */}
-      <div className="rounded-2xl p-8 sm:p-10 text-center" style={{ background: "#1e3a5f" }}>
-        <h2 className="text-2xl font-bold text-white mb-3">
-          Ready to automate the whole thing?
-        </h2>
-        <p className="mb-6 max-w-xl mx-auto" style={{ color: "#dbeafe" }}>
-          These tools help you understand your Stripe data. Our converter
-          takes the whole Stripe CSV and produces a QuickBooks-ready import
-          file in one click — free, no account needed.
-        </p>
-        <Link
-          href="/"
-          className="inline-block bg-white font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity"
-          style={{ color: "#1e3a5f" }}
-        >
-          Try the Stripe → QuickBooks Converter →
-        </Link>
+        <div className="hub-sections">
+          <div id="calculators"><ToolSection title="Fee calculators" eyebrow="Know your numbers" tools={calculators} /></div>
+          <div id="converters"><ToolSection title="Converters & formatters" eyebrow="Move your data" tools={converters} /></div>
+          <div id="error-checking"><ToolSection title="Error checking" eyebrow="Fix it faster" tools={errorChecking} /></div>
+        </div>
+
+        <section className="hub-bottom-cta">
+          <div><span className="hub-eyebrow">Ready when you are</span><h2>One file in.<br /><em>Books up to date.</em></h2></div>
+          <Link href="/" className="hub-cta-button">Open the converter <span>→</span></Link>
+        </section>
       </div>
     </div>
   );

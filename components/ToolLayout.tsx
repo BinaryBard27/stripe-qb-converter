@@ -1,6 +1,3 @@
-// components/ToolLayout.tsx
-// Wrap every free tool page with this for consistent header + breadcrumb + FAQ.
-
 import Link from "next/link";
 import ConverterCTA from "./ConverterCTA";
 
@@ -16,47 +13,35 @@ interface ToolLayoutProps {
   faqs?: FAQ[];
 }
 
-export default function ToolLayout({
-  title,
-  description,
-  children,
-  faqs,
-}: ToolLayoutProps) {
+export default function ToolLayout({ title, description, children, faqs }: ToolLayoutProps) {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10">
-
-      {/* Breadcrumb — Google loves this for site structure */}
-      <nav className="text-sm text-gray-400 mb-8 flex items-center gap-2 flex-wrap">
-        <Link href="/" className="hover:text-gray-700 transition-colors">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-gray-700 transition-colors">
-          Free Tools
-        </Link>
-        <span>/</span>
-        <span className="text-gray-600">{title}</span>
+    <div className="tool-page-shell">
+      <nav className="tool-breadcrumb" aria-label="Breadcrumb">
+        <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/tools">Free tools</Link><span aria-hidden="true">/</span><span>{title}</span>
       </nav>
 
-      {/* Tool header */}
-      <div className="mb-8">
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 tracking-tight">
-          {title}
-        </h1>
-        <p className="text-gray-500 text-lg leading-relaxed">{description}</p>
-      </div>
+      <section className="tool-workspace" aria-labelledby="tool-title">
+        <div className="tool-workspace-label"><span className="hub-eyebrow-dot" /> Use the tool</div>
+        <div className="tool-workspace-heading">
+          <div>
+            <h1 id="tool-title">{title}</h1>
+          </div>
+          <Link href="/tools" className="tool-change-link">Choose another tool ↗</Link>
+        </div>
+        <div className="tool-interactive-card">{children}</div>
+      </section>
 
-      {/* The interactive tool */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm mb-8">
-        {children}
-      </div>
+      <section className="tool-supporting-copy">
+        <span className="hub-eyebrow">What this tool does</span>
+        <h2>Get the result first.<br /><em>Read the details when you need them.</em></h2>
+        <p>{description}</p>
+      </section>
 
-      {/* CTA — the whole reason this page exists */}
       <ConverterCTA />
 
-      <nav aria-label="Related tools" className="mt-8 border-y border-gray-100 py-5">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">Explore next</p>
-        <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-indigo-600">
+      <nav aria-label="Related tools" className="tool-related-links">
+        <p>Explore next</p>
+        <div>
           <Link href="/tools/stripe-fee-calculator">Stripe fee calculator</Link>
           <Link href="/tools/stripe-mtd-bridging-formatter">MTD formatter</Link>
           <Link href="/tools/stripe-to-xero-converter">Stripe to Xero</Link>
@@ -64,24 +49,18 @@ export default function ToolLayout({
         </div>
       </nav>
 
-      {/* FAQ section — targets long-tail keywords, eligible for Google rich results */}
       {faqs && faqs.length > 0 && (
-        <div className="mt-14">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-6">
+        <section className="tool-faq" aria-labelledby="faq-heading">
+          <div className="tool-faq-heading"><span className="hub-eyebrow">Still wondering?</span><h2 id="faq-heading">Frequently Asked Questions</h2></div>
+          <div className="tool-faq-list">
             {faqs.map((faq, i) => (
-              <div
-                key={i}
-                className="border-b border-gray-100 pb-6 last:border-0"
-              >
-                <h3 className="font-semibold text-gray-900 mb-2">{faq.q}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{faq.a}</p>
-              </div>
+              <details key={i}>
+                <summary>{faq.q}<span aria-hidden="true">+</span></summary>
+                <p>{faq.a}</p>
+              </details>
             ))}
           </div>
-        </div>
+        </section>
       )}
     </div>
   );
