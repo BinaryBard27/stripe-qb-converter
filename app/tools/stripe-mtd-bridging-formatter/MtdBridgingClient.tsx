@@ -1,6 +1,8 @@
 "use client";
 import { useState, useCallback } from "react";
 import Papa from "papaparse";
+import FileDropzone from "../../../components/FileDropzone";
+import ProUpgradePrompt from "../../../components/ProUpgradePrompt";
 
 interface MtdRow {
   "Date": string;
@@ -67,11 +69,11 @@ export default function MtdBridgingClient() {
 
   const vatRate = VAT_RATES.find((v) => v.id === vatRateId)!;
 
-  const handleConvert = useCallback(() => {
+  const handleConvert = useCallback((input = csv) => {
     setError("");
-    if (!csv.trim()) return;
+    if (!input.trim()) return;
     try {
-      const rows = parseCSV(csv);
+      const rows = parseCSV(input);
       if (!rows.length) { setError("No data found in CSV."); return; }
 
       let totalGross = 0;
@@ -134,6 +136,13 @@ export default function MtdBridgingClient() {
     }
   }, [csv, vatRateId, vatRegistered, downloadUrl, vatRate]);
 
+  const handleFile = (file: File) => {
+    const reader = new FileReader();
+    reader.onload = () => { const text = String(reader.result ?? ""); setCsv(text); handleConvert(text); };
+    reader.onerror = () => setError("We couldn’t read this file. Please try again.");
+    reader.readAsText(file);
+  };
+
   return (
     <div className="space-y-5">
 
@@ -174,6 +183,7 @@ export default function MtdBridgingClient() {
       {/* CSV input */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1.5">Paste your Stripe CSV export</label>
+        <FileDropzone onFile={handleFile} label="CSV or TSV" />
         <textarea value={csv} onChange={(e) => { setCsv(e.target.value); setResult(null); }}
           rows={7} placeholder="Paste CSV content here..."
           className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y placeholder:text-gray-300"
@@ -181,11 +191,6 @@ export default function MtdBridgingClient() {
       </div>
 
       {error && <p className="text-sm text-red-600">{error}</p>}
-
-      <button onClick={handleConvert} disabled={!csv.trim()}
-        className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-200 disabled:text-gray-400 text-white font-semibold py-3 rounded-lg text-sm transition-colors">
-        Format for MTD
-      </button>
 
       {result && downloadUrl && stats && (
         <div className="space-y-4">
@@ -217,6 +222,7 @@ export default function MtdBridgingClient() {
               ))}
             </div>
           </div>
+          <ProUpgradePrompt />
 
           {/* Import instructions */}
           <div className="border border-gray-200 rounded-xl p-4 text-sm">

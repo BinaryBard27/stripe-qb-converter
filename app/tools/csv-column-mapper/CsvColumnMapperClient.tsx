@@ -1,6 +1,7 @@
 "use client";
 import { useState, useCallback } from "react";
 import Papa from "papaparse";
+import FileDropzone from "../../../components/FileDropzone";
 
 const QB_COLUMNS = ["Date", "Description", "Amount", "Debit", "Credit", "Payee", "Memo", "Reference", "Account", "(skip this column)"];
 
@@ -60,6 +61,23 @@ export default function CsvColumnMapperClient() {
 
   const keptCount = headers.filter((h) => mapping[h] !== "(skip this column)").length;
 
+  const handleFile = (file: File) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const text = String(reader.result ?? "");
+      setRawCsv(text);
+      const { headers: h, rows: r } = parseCSV(text);
+      setHeaders(h); setRows(r);
+      const defaults: Record<string, string> = {};
+      h.forEach((header) => {
+        const lower = header.toLowerCase();
+        defaults[header] = lower.includes("date") ? "Date" : lower.includes("desc") || lower.includes("narr") || lower.includes("memo") ? "Description" : lower.includes("amount") || lower.includes("net") ? "Amount" : lower.includes("debit") ? "Debit" : lower.includes("credit") ? "Credit" : lower.includes("payee") || lower.includes("name") ? "Payee" : "(skip this column)";
+      });
+      setMapping(defaults); setParsed(true); setDownloaded(false);
+    };
+    reader.readAsText(file);
+  };
+
   return (
     <div className="space-y-5">
 
@@ -71,6 +89,7 @@ export default function CsvColumnMapperClient() {
       {/* CSV input */}
       {!parsed && (
         <div>
+          <FileDropzone onFile={handleFile} label="CSV or TSV" />
           <label className="block text-sm font-medium text-gray-700 mb-1.5">Paste your CSV</label>
           <textarea
             value={rawCsv}

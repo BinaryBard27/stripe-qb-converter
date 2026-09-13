@@ -1,6 +1,8 @@
 "use client";
 import { useState, useCallback } from "react";
 import Papa from "papaparse";
+import FileDropzone from "../../../components/FileDropzone";
+import ProUpgradePrompt from "../../../components/ProUpgradePrompt";
 
 interface FreeAgentRow {
   "Date": string;
@@ -46,11 +48,11 @@ export default function StripeToFreeAgentClient() {
   const [stats, setStats] = useState<{ rows: number; total: number } | null>(null);
   const [error, setError] = useState("");
 
-  const handleConvert = useCallback(() => {
+  const handleConvert = useCallback((input = csv) => {
     setError("");
-    if (!csv.trim()) return;
+    if (!input.trim()) return;
     try {
-      const rows = parseCSV(csv);
+      const rows = parseCSV(input);
       if (!rows.length) { setError("No data found. Paste your Stripe CSV export."); return; }
 
       let totalNet = 0;
@@ -104,6 +106,13 @@ export default function StripeToFreeAgentClient() {
     }
   }, [csv, separateFees, downloadUrl]);
 
+  const handleFile = (file: File) => {
+    const reader = new FileReader();
+    reader.onload = () => { const text = String(reader.result ?? ""); setCsv(text); handleConvert(text); };
+    reader.onerror = () => setError("We couldn’t read this file. Please try again.");
+    reader.readAsText(file);
+  };
+
   return (
     <div className="space-y-5">
 
@@ -142,6 +151,7 @@ export default function StripeToFreeAgentClient() {
       {/* CSV input */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1.5">Paste your Stripe CSV export</label>
+        <FileDropzone onFile={handleFile} label="CSV or TSV" />
         <textarea value={csv} onChange={(e) => { setCsv(e.target.value); setResult(null); }}
           rows={7} placeholder="Paste CSV content here..."
           className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y placeholder:text-gray-300"
@@ -149,11 +159,6 @@ export default function StripeToFreeAgentClient() {
       </div>
 
       {error && <p className="text-sm text-red-600">{error}</p>}
-
-      <button onClick={handleConvert} disabled={!csv.trim()}
-        className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-200 disabled:text-gray-400 text-white font-semibold py-3 rounded-lg text-sm transition-colors">
-        Convert to FreeAgent Format
-      </button>
 
       {result && downloadUrl && stats && (
         <div className="space-y-4">
@@ -170,7 +175,8 @@ export default function StripeToFreeAgentClient() {
                 </svg>
                 Download for FreeAgent
               </a>
-            </div>
+          </div>
+          <ProUpgradePrompt />
 
             <div className="bg-white rounded-lg border border-green-100 p-3 text-xs text-gray-600">
               <p className="font-semibold text-gray-700 mb-1">How to import into FreeAgent:</p>

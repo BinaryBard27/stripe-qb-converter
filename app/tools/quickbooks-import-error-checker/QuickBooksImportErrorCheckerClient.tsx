@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import FileDropzone from "../../../components/FileDropzone";
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -332,6 +333,17 @@ export default function QuickBooksImportErrorCheckerClient() {
   const errorCount = result?.issues.filter((i) => i.severity === "error").length ?? 0;
   const warningCount = result?.issues.filter((i) => i.severity === "warning").length ?? 0;
 
+  const handleFile = (file: File) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const text = String(reader.result ?? "");
+      setCsv(text);
+      setResult(checkCSV(text));
+      setChecked(true);
+    };
+    reader.readAsText(file);
+  };
+
   return (
     <div className="space-y-5">
 
@@ -342,6 +354,7 @@ export default function QuickBooksImportErrorCheckerClient() {
 
       {/* Textarea */}
       <div>
+        <FileDropzone onFile={handleFile} label="CSV or TSV" />
         <div className="flex items-center justify-between mb-1.5">
           <label className="text-sm font-medium text-gray-700">
             Paste your CSV here

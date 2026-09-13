@@ -7,7 +7,11 @@ export function generateStaticParams() { return posts.map((post) => ({ slug: pos
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = posts.find((item) => item.slug === slug);
-  return post ? { title: post.title + " | Stripe2QB", description: post.description } : {};
+  return post ? {
+    title: post.title + " | Stripe2QB",
+    description: post.description,
+    alternates: { canonical: `https://stripe-qb-converter.vercel.app/blog/${post.slug}` },
+  } : {};
 }
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {

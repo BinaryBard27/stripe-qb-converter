@@ -1,6 +1,8 @@
 "use client";
-import { useState, useRef, useCallback } from "react";
+import { useState, useCallback } from "react";
 import Link from "next/link";
+import FileDropzone from "../../components/FileDropzone";
+import ProUpgradePrompt from "../../components/ProUpgradePrompt";
 
 // Bank statement to Excel converter
 // Client-side only: CSV/TSV → cleaned Excel via SheetJS (xlsx)
@@ -120,10 +122,8 @@ export default function BankStatementToExcel() {
   const [processing, setProcessing] = useState(false);
   const [preview, setPreview] = useState(null);
   const [error, setError] = useState(null);
-  const [dragOver, setDragOver] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
   const [conversionCount, setConversionCount] = useState(0);
-  const fileRef = useRef(null);
 
   const handleFile = useCallback(async (f) => {
     if (!f) return;
@@ -203,16 +203,6 @@ export default function BankStatementToExcel() {
     setConversionCount((c) => c + 1);
   }, [preview]);
 
-  const onDrop = useCallback(
-    (e) => {
-      e.preventDefault();
-      setDragOver(false);
-      const f = e.dataTransfer.files[0];
-      if (f) handleFile(f);
-    },
-    [handleFile]
-  );
-
   return (
     <div className="min-h-screen bg-[#f6f6f4] text-gray-900">
       {/* Top bar */}
@@ -240,35 +230,7 @@ export default function BankStatementToExcel() {
 
         {/* Upload zone */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-          <div
-            onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
-            onDragLeave={() => setDragOver(false)}
-            onDrop={onDrop}
-            onClick={() => fileRef.current?.click()}
-            className={`border-2 border-dashed rounded-xl p-10 text-center cursor-pointer transition-all ${
-              dragOver
-                ? "border-emerald-400 bg-emerald-50"
-                : "border-gray-200 hover:border-emerald-300 hover:bg-gray-50"
-            }`}
-          >
-            <div className="text-4xl mb-3">📄</div>
-            <p className="font-medium text-gray-700 mb-1">
-              {file ? file.name : "Drop your bank statement CSV here"}
-            </p>
-            <p className="text-sm text-gray-400">
-              or click to browse · CSV, TSV, TXT · Max 10MB
-            </p>
-            <p className="text-xs text-gray-300 mt-2">
-              {5 - conversionCount} free conversions remaining today
-            </p>
-          </div>
-          <input
-            ref={fileRef}
-            type="file"
-            accept=".csv,.tsv,.txt"
-            className="hidden"
-            onChange={(e) => handleFile(e.target.files[0])}
-          />
+          <FileDropzone accept=".csv,.tsv,.txt" label={file ? `${file.name} · ${5 - conversionCount} free conversions remaining today` : "CSV, TSV, or TXT · max 10MB"} onFile={handleFile} />
 
           {error && (
             <div className="mt-4 bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700">
@@ -284,6 +246,7 @@ export default function BankStatementToExcel() {
 
           {preview && !processing && (
             <div className="mt-6">
+              <ProUpgradePrompt />
               <div className="flex items-center justify-between mb-3">
                 <div>
                   <p className="font-medium text-gray-800 text-sm">
