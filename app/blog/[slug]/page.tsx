@@ -1,16 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { posts } from "../posts";
 
 export function generateStaticParams() { return posts.map((post) => ({ slug: post.slug })); }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const post = posts.find((item) => item.slug === slug);
   return post ? {
     title: post.title + " | Stripe2QB",
     description: post.description,
-    alternates: { canonical: `https://stripe-qb-converter.vercel.app/blog/${post.slug}` },
+    // Resolve against the root layout's metadataBase so every post gets its own URL.
+    alternates: { canonical: `/blog/${post.slug}` },
   } : {};
 }
 
