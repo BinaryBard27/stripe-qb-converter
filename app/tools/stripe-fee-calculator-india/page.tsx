@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeFeeIndiaClient from "./StripeFeeIndiaClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe Fee Calculator India 2026 — INR Transaction Fees | Free",
   description:
     "Calculate Stripe fees for Indian businesses in INR. Stripe India charges 2% for domestic cards and 3% for international cards. See net payout instantly. Free, no signup.",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-fee-calculator-india",
   },
-};
+});
 
 const faqs = [
   {

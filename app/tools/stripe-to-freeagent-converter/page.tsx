@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeToFreeAgentClient from "./StripeToFreeAgentClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe to FreeAgent CSV Converter — Free Tool for NatWest & RBS Users",
   description:
     "Convert your Stripe CSV export to FreeAgent bank import format. Perfect for NatWest, Royal Bank of Scotland, and Mettle customers who get FreeAgent free. No signup, HMRC compliant.",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-to-freeagent-converter",
   },
-};
+});
 
 const faqs = [
   {

@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import AnnualBookkeepingCostClient from "./AnnualBookkeepingCostClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Annual Bookkeeping Cost Calculator — How Much Does Bookkeeping Cost?",
   description:
     "Calculate the true annual cost of bookkeeping for your small business. Compare DIY, hiring a bookkeeper, and using software. Free, instant, no signup.",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/annual-bookkeeping-cost-calculator",
   },
-};
+});
 
 const faqs = [
   {

@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeCurrencyClient from "./StripeCurrencyClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe Currency Conversion Calculator — Multi-Currency Fee Calculator",
   description:
     "Calculate Stripe fees for multi-currency transactions including the 1% currency conversion fee. See exact costs when charging in a different currency than your settlement currency. Free, instant.",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-currency-conversion-calculator",
   },
-};
+});
 
 const faqs = [
   {

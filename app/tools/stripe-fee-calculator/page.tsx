@@ -1,3 +1,4 @@
+import { completeMetadata } from "@/lib/seo";
 // app/tools/stripe-fee-calculator/page.tsx
 // Server component — handles SEO metadata and structured data.
 // Interactive logic lives in StripeFeeCalculatorClient.tsx.
@@ -8,7 +9,7 @@ import ToolLayout from "@/components/ToolLayout";
 import StripeFeeCalculatorClient from "./StripeFeeCalculatorClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe Fees Calculator — Calculate 2.9% + 30¢ Free",
   description:
     "How much does Stripe charge? Enter any amount and see exact fees, net payout, and what to charge to receive a specific amount. Free, instant, no signup.",
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     canonical:
       "https://stripe-qb-converter.vercel.app/tools/stripe-fee-calculator",
   },
-};
+});
 
 const faqs = [
   {

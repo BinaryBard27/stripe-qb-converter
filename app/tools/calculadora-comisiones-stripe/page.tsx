@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import CalculadoraStripeClient from "./CalculadoraStripeClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Calculadora de Comisiones Stripe — Calcula Tus Tarifas Gratis",
   description:
     "Calcula exactamente cuánto cobra Stripe por cada transacción (2.9% + $0.30). Ve tu pago neto al instante. Gratis, sin registro, sin datos almacenados.",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
       "en": "https://stripe-qb-converter.vercel.app/tools/stripe-fee-calculator",
     },
   },
-};
+});
 
 const faqs = [
   {

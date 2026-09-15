@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import BookkeepingHoursSavedClient from "./BookkeepingHoursSavedClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Bookkeeping Hours Saved Calculator — How Much Time Does Bookkeeping Take?",
   description:
     "Calculate how many hours per month you spend on bookkeeping and how much it's costing you. See exactly how much time automated tools save. Free, instant, no signup.",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/bookkeeping-hours-saved-calculator",
   },
-};
+});
 
 const faqs = [
   {

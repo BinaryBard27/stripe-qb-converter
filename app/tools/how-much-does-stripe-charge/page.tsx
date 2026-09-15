@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import HowMuchStripeChargesClient from "./HowMuchStripeChargesClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "How Much Does Stripe Charge? — Complete Fee Guide 2026 | Free Calculator",
   description:
     "Stripe charges 2.9% + $0.30 per transaction. See every Stripe fee explained with a live calculator. Cards, ACH, international, disputes — all covered.",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/how-much-does-stripe-charge",
   },
-};
+});
 
 const faqs = [
   {

@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeRevenueForecastClient from "./StripeRevenueForecastClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe Revenue Forecaster — Project Your Monthly Stripe Revenue",
   description:
     "Forecast your Stripe revenue for the next 12 months. Enter your current MRR and growth rate to see projected revenue, fees, and net payouts. Free, instant, no signup.",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-revenue-forecaster",
   },
-};
+});
 
 const faqs = [
   {

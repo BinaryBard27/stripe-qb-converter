@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeInternationalFeeClient from "./StripeInternationalFeeClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe International Fee Calculator — Cross-Border Transaction Fees",
   description:
     "Calculate Stripe fees for international and cross-border transactions. Compare domestic vs international card rates, currency conversion fees, and net payouts. Free, instant, no signup.",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-international-fee-calculator",
   },
-};
+});
 
 const faqs = [
   {

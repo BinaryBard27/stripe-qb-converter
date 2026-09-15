@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import MtdBridgingClient from "./MtdBridgingClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe MTD Bridging Formatter — Making Tax Digital CSV for HMRC",
   description:
     "Format your Stripe transactions for Making Tax Digital (MTD) compliance. Converts Stripe exports to HMRC-compatible digital records with correct VAT categories. Free, HMRC compliant, no signup.",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-mtd-bridging-formatter",
   },
-};
+});
 
 const faqs = [
   {

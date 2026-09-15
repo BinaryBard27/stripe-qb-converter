@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeFeeSGClient from "./StripeFeeSGClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe Fee Calculator Singapore 2026 — SGD Fees | Free",
   description:
     "Calculate Stripe fees for Singapore businesses in SGD. Stripe SG charges 3.4% for domestic cards and 3.9% for international cards. See net payout instantly. Free, no signup.",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-fee-calculator-singapore",
   },
-};
+});
 
 const faqs = [
   {

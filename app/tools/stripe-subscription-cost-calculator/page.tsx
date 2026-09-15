@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeSubscriptionClient from "./StripeSubscriptionClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe Subscription Cost Calculator — Monthly & Annual Plan Fees",
   description:
     "Calculate Stripe fees for subscription pricing. Compare monthly vs annual plans, see total processing costs, and find the optimal pricing for your SaaS. Free, instant, no signup.",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-subscription-cost-calculator",
   },
-};
+});
 
 const faqs = [
   {

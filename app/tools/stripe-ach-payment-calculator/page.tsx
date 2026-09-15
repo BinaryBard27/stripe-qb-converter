@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeAchClient from "./StripeAchClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe ACH Payment Calculator — 0.8% Capped at $5 | Free",
   description:
     "Calculate Stripe ACH bank transfer fees. Stripe charges 0.8% capped at $5 per ACH transaction — much cheaper than card payments for large amounts. See exact savings. Free, instant.",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-ach-payment-calculator",
   },
-};
+});
 
 const faqs = [
   {

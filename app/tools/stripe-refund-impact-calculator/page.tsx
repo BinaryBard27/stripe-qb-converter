@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeRefundImpactClient from "./StripeRefundImpactClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe Refund Impact Calculator — True Cost of Stripe Refunds",
   description:
     "Calculate the true cost of issuing a Stripe refund. Stripe keeps the processing fee even when you refund — see exactly how much each refund really costs you. Free, instant, no signup.",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-refund-impact-calculator",
   },
-};
+});
 
 const faqs = [
   {

@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeFeeCanadaClient from "./StripeFeeCanadaClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe Fee Calculator Canada — CAD Transaction Fees 2026",
   description:
     "Calculate Stripe fees for Canadian businesses in CAD. Stripe Canada charges 2.9% + CA$0.30 for domestic cards. See your net payout instantly. Free, no signup.",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-fee-calculator-canada",
   },
-};
+});
 
 const faqs = [
   {

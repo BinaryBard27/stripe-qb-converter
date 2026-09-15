@@ -1,3 +1,4 @@
+import { completeMetadata } from "@/lib/seo";
 // app/tools/stripe-payout-calculator/page.tsx
 // Server component — handles SEO metadata and structured data.
 // Interactive logic lives in StripePayoutCalculatorClient.tsx.
@@ -8,7 +9,7 @@ import ToolLayout from "@/components/ToolLayout";
 import StripePayoutCalculatorClient from "./StripePayoutCalculatorClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe Payout Calculator 2026 — Calculate Your Net Deposit | Free",
   description:
     "Calculate your exact Stripe payout. Enter any charge amount and see your net deposit after standard processing fees. Free, instant, no signup.",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     canonical:
       "https://stripe-qb-converter.vercel.app/tools/stripe-payout-calculator",
   },
-};
+});
 
 const faqs = [
   {

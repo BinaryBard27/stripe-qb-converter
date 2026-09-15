@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeFeeNZClient from "./StripeFeeNZClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe Fee Calculator New Zealand 2026 — NZD Fees | Free",
   description:
     "Calculate Stripe fees for New Zealand businesses in NZD. Stripe NZ charges 2.7% + NZ$0.30 for domestic cards. See net payout instantly. Free, no signup, no data stored.",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-fee-calculator-new-zealand",
   },
-};
+});
 
 const faqs = [
   {

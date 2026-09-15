@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeFeeAustraliaClient from "./StripeFeeAustraliaClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe Fee Calculator Australia — AUD Transaction Fees 2026",
   description:
     "Calculate Stripe fees for Australian businesses in AUD. Stripe Australia charges 1.7% + A$0.30 for domestic cards. See your net payout instantly. Free, no signup.",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-fee-calculator-australia",
   },
-};
+});
 
 const faqs = [
   {

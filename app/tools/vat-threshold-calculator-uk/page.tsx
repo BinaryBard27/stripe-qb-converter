@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import VatThresholdClient from "./VatThresholdClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "UK VAT Threshold Calculator 2026 — Do I Need to Register for VAT?",
   description:
     "Calculate if your UK business needs to register for VAT. The 2026 UK VAT threshold is £90,000 taxable turnover in a 12-month period. Free, instant, HMRC compliant.",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/vat-threshold-calculator-uk",
   },
-};
+});
 
 const faqs = [
   {

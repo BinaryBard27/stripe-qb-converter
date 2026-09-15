@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeVsPayPalClient from "./StripeVsPayPalClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe vs PayPal Fee Comparison Calculator — Which Costs Less?",
   description:
     "Compare Stripe and PayPal processing fees side by side. Enter your transaction amount and monthly volume to see exactly which payment processor saves you more money. Free, instant, no signup.",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-vs-paypal-fee-comparison",
   },
-};
+});
 
 const faqs = [
   {

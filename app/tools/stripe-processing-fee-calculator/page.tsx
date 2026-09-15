@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeProcessingFeeClient from "./StripeProcessingFeeClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe Processing Fee Calculator — Calculate Transaction Costs Instantly",
   description:
     "Calculate Stripe processing fees for any transaction. See gross amount, net payout, and total fees. Includes monthly volume calculator and break-even analysis. Free, no signup.",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-processing-fee-calculator",
   },
-};
+});
 
 const faqs = [
   {

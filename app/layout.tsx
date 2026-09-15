@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import "./globals.css";
+import { completeMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://stripe-qb-converter.vercel.app"),
+export const metadata: Metadata = completeMetadata({
   alternates: { canonical: "/" },
   openGraph: {
     title: "Stripe to QuickBooks Converter | Free, Private, Instant",
@@ -13,11 +13,10 @@ export const metadata: Metadata = {
     siteName: "Stripe2QB",
     type: "website",
   },
-  twitter: { card: "summary", title: "Stripe to QuickBooks Converter", description: "A free, private, browser-based Stripe to QuickBooks CSV converter." },
   icons: { icon: "/favicon.ico" },
   title: "Stripe to QuickBooks Converter — Free, Instant, No Signup",
   description: "Free tools for Stripe and QuickBooks users. Convert your Stripe CSV to QuickBooks-ready format instantly. No signup required.",
-};
+});
 
 export default function RootLayout({
   children,

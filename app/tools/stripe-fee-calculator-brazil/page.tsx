@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeFeeBrazilClient from "./StripeFeeBrazilClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Calculadora de Taxas Stripe Brasil 2026 — Taxas em BRL | Grátis",
   description:
     "Calcule as taxas do Stripe para empresas brasileiras em BRL. O Stripe Brasil cobra 3.99% + R$0,39 por transação com cartão. Veja seu lucro líquido instantaneamente. Grátis, sem cadastro.",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
       "en": "https://stripe-qb-converter.vercel.app/tools/stripe-fee-calculator",
     },
   },
-};
+});
 
 const faqs = [
   {

@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
 import ToolLayout from "@/components/ToolLayout";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Export Stripe to QuickBooks — Free Converter, Instant, No Signup",
   description:
     "Export your Stripe transactions to QuickBooks in seconds. Free browser-based converter maps columns, fixes dates, converts amounts, separates fees. No signup, no data stored.",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/export-stripe-to-quickbooks",
   },
-};
+});
 
 const faqs = [
   {

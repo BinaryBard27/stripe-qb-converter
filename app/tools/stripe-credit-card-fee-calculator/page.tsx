@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeCreditCardFeeClient from "./StripeCreditCardFeeClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe Credit Card Fee Calculator — Card Processing Fees by Card Type",
   description:
     "Calculate Stripe credit card processing fees by card type — Visa, Mastercard, Amex, international cards. See net payout and what to charge. Free, instant, no signup.",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-credit-card-fee-calculator",
   },
-};
+});
 
 const faqs = [
   {

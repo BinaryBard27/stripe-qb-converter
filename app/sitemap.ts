@@ -1,16 +1,17 @@
 import { MetadataRoute } from 'next'
 import { posts } from './blog/posts'
+import { absoluteUrl } from '@/lib/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const toolSlugs = ['stripe-fee-calculator', 'stripe-mtd-bridging-formatter', 'stripe-to-xero-converter', 'quickbooks-import-error-checker', 'stripe-fee-calculator-canada', 'stripe-fee-calculator-australia', 'stripe-vs-paypal-fee-comparison', 'stripe-fees-vs-square', 'stripe-nonprofit-pricing'];
   const toolUrls = toolSlugs.map((slug) => ({
-    url: `https://stripe-qb-converter.vercel.app/tools/${slug}`,
+    url: absoluteUrl(`/tools/${slug}`),
     lastModified: new Date('2026-09-12'),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }));
   const blogUrls = posts.map((post) => ({
-    url: `https://stripe-qb-converter.vercel.app/blog/${post.slug}`,
+    url: absoluteUrl(`/blog/${post.slug}`),
     lastModified: new Date('2026-09-12'),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
@@ -18,37 +19,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: 'https://stripe-qb-converter.vercel.app',
+      url: absoluteUrl('/'),
       lastModified: new Date('2026-09-12'),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: 'https://stripe-qb-converter.vercel.app/tools',
+      url: absoluteUrl('/tools'),
       lastModified: new Date('2026-09-12'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: 'https://stripe-qb-converter.vercel.app/blog',
+      url: absoluteUrl('/blog'),
       lastModified: new Date('2026-09-12'),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: 'https://stripe-qb-converter.vercel.app/about',
+      url: absoluteUrl('/about'),
       lastModified: new Date('2026-09-12'),
       changeFrequency: 'monthly',
       priority: 0.4,
     },
     {
-      url: 'https://stripe-qb-converter.vercel.app/contact',
+      url: absoluteUrl('/contact'),
       lastModified: new Date('2026-09-12'),
       changeFrequency: 'monthly',
       priority: 0.3,
     },
     {
-      url: 'https://stripe-qb-converter.vercel.app/demo',
+      url: absoluteUrl('/demo'),
       lastModified: new Date('2026-09-12'),
       changeFrequency: 'monthly',
       priority: 0.5,

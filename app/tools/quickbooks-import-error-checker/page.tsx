@@ -1,3 +1,4 @@
+import { completeMetadata } from "@/lib/seo";
 // app/tools/quickbooks-import-error-checker/page.tsx
 
 import type { Metadata } from "next";
@@ -6,7 +7,7 @@ import ToolLayout from "@/components/ToolLayout";
 import QuickBooksImportErrorCheckerClient from "./QuickBooksImportErrorCheckerClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "QuickBooks CSV Import Error Checker — Fix Import Errors Instantly",
   description:
     "Paste your CSV and instantly see why QuickBooks is rejecting it. Detects missing headers, wrong date formats, invalid amounts, duplicate IDs, and more. Free, no signup.",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     canonical:
       "https://stripe-qb-converter.vercel.app/tools/quickbooks-import-error-checker",
   },
-};
+});
 
 const faqs = [
   {

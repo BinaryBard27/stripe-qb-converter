@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeFeesUKClient from "./StripeFeesUKClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe Fee Calculator UK 2026 — 1.5% + 20p | Free GBP Calculator",
   description:
     "Calculate Stripe UK fees in GBP. 1.5% + £0.20 for UK cards, 2.5% + £0.20 for international. See net payout instantly. Free, HMRC compliant, no signup.",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-fee-calculator-uk",
   },
-};
+});
 
 const faqs = [
   {

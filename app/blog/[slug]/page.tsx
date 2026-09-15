@@ -2,18 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { posts } from "../posts";
+import { completeMetadata } from "@/lib/seo";
 
 export function generateStaticParams() { return posts.map((post) => ({ slug: post.slug })); }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const post = posts.find((item) => item.slug === slug);
-  return post ? {
+  return post ? completeMetadata({
     title: post.title + " | Stripe2QB",
     description: post.description,
-    // Resolve against the root layout's metadataBase so every post gets its own URL.
-    alternates: { canonical: `/blog/${post.slug}` },
-  } : {};
+  }, `/blog/${post.slug}`) : {};
 }
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {

@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import ChartOfAccountsClient from "./ChartOfAccountsClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "QuickBooks Chart of Accounts Generator — Free COA Template",
   description:
     "Generate a QuickBooks chart of accounts template for your business type. Get the right account categories for your industry, ready to import into QuickBooks. Free, instant, no signup.",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/quickbooks-chart-of-accounts-generator",
   },
-};
+});
 
 const faqs = [
   {

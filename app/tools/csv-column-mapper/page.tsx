@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import CsvColumnMapperClient from "./CsvColumnMapperClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "CSV Column Mapper — Map Any CSV to QuickBooks Format",
   description:
     "Paste any CSV and visually map its columns to QuickBooks import format. Fix column name mismatches instantly. Free, browser-based, no signup required.",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/csv-column-mapper",
   },
-};
+});
 
 const faqs = [
   {

@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 import ToolLayout from "@/components/ToolLayout";
 import StripeToXeroClient from "./StripeToXeroClient";
 import { FaqSchema } from "@/components/FaqSchema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Stripe to Xero CSV Converter — Free, Instant, No Signup",
   description:
     "Convert your Stripe CSV export to Xero-ready format instantly. Maps columns, fixes date formats, converts amounts, and categorises Stripe fees automatically. Free, browser-based, HMRC compliant.",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools/stripe-to-xero-converter",
   },
-};
+});
 
 const faqs = [
   {

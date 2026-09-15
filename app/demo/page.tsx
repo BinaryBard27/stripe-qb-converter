@@ -1,10 +1,11 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: 'Stripe to QuickBooks Converter Demo',
   description: 'Watch how Stripe2QB converts a Stripe export into a QuickBooks-ready CSV in your browser.',
   alternates: { canonical: '/demo' },
-};
+});
 
 const videoSchema = {
   '@context': 'https://schema.org',

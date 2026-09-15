@@ -1,14 +1,15 @@
+import { completeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = completeMetadata({
   title: "Free Stripe & QuickBooks Tools — Calculators & Converters",
   description:
     "Free tools for Stripe and QuickBooks users. Calculate fees, reconcile transactions, fix CSV imports, and more. No signup required.",
   alternates: {
     canonical: "https://stripe-qb-converter.vercel.app/tools",
   },
-};
+});
 
 type Tool = {
   slug: string;
