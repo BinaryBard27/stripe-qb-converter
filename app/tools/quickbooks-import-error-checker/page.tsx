@@ -8,10 +8,12 @@ import QuickBooksImportErrorCheckerClient from "./QuickBooksImportErrorCheckerCl
 import { FaqSchema } from "@/components/FaqSchema";
 
 export const metadata: Metadata = completeMetadata({
-  title: "QuickBooks CSV Import Error Checker — Fix Import Errors Instantly",
+  title: "QuickBooks Import from Stripe Failed? How to Fix CSV Errors",
   description:
-    "Paste your CSV and instantly see why QuickBooks is rejecting it. Detects missing headers, wrong date formats, invalid amounts, duplicate IDs, and more. Free, no signup.",
+    "Did your QuickBooks import from Stripe fail or throw an error? Paste your Stripe CSV to instantly find and fix the exact formatting errors preventing the import.",
   keywords: [
+    "quickbooks import from stripe failed",
+    "stripe to quickbooks import error",
     "quickbooks csv import error",
     "quickbooks import not working",
     "quickbooks csv format",
@@ -22,9 +24,9 @@ export const metadata: Metadata = completeMetadata({
     "quickbooks csv columns",
   ],
   openGraph: {
-    title: "QuickBooks CSV Import Error Checker — Free & Instant",
+    title: "QuickBooks Import from Stripe Failed? Fix CSV Errors",
     description:
-      "Paste your CSV and instantly see exactly why QuickBooks is rejecting it — with fixes.",
+      "Paste your Stripe CSV to instantly see exactly why QuickBooks is rejecting it — with fixes.",
   },
   alternates: {
     canonical:

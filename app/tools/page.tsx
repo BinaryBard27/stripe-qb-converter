@@ -23,7 +23,6 @@ type Tool = {
 const calculators: Tool[] = [
   { slug: "stripe-fee-calculator", name: "Stripe Fee Calculator", description: "Work out the fee and the amount to charge to get paid in full.", icon: "%", badge: "Most popular", tone: "violet" },
   { slug: "stripe-fees-vs-square", name: "Stripe Fees vs Square", description: "Compare estimated processing fees for online payments.", icon: "⇄", badge: "New", tone: "blue" },
-  { slug: "stripe-vs-paypal-fee-comparison", name: "Stripe vs PayPal Fees", description: "See which payment processor keeps more money in your business.", icon: "↔", tone: "orange" },
   { slug: "stripe-refund-impact-calculator", name: "Refund Impact Calculator", description: "See the true cost of refunding a Stripe payment.", icon: "↩", tone: "rose" },
   { slug: "stripe-processing-fee-calculator", name: "Processing Fee Calculator", description: "Project fees across monthly volume and annual totals.", icon: "▥", tone: "blue" },
   { slug: "stripe-credit-card-fee-calculator", name: "Credit Card Fee Calculator", description: "Compare fees by card type, including Amex and international cards.", icon: "▣", tone: "violet" },
@@ -42,7 +41,6 @@ const calculators: Tool[] = [
   { slug: "stripe-fee-calculator-canada", name: "Stripe Fee Calculator Canada", description: "Calculate Stripe fees in CAD with provincial tax options.", icon: "C$", tone: "rose" },
   { slug: "stripe-fee-calculator-new-zealand", name: "Stripe Fee Calculator New Zealand", description: "Calculate Stripe fees in NZD for domestic cards.", icon: "NZ$", tone: "green" },
   { slug: "stripe-fee-calculator-singapore", name: "Stripe Fee Calculator Singapore", description: "Calculate Stripe fees in SGD for Singapore businesses.", icon: "S$", tone: "violet" },
-  { slug: "stripe-fee-calculator-india", name: "Stripe Fee Calculator India", description: "Calculate Stripe fees in INR for domestic and international cards.", icon: "₹", tone: "orange" },
   { slug: "stripe-fee-calculator-brazil", name: "Calculadora de Taxas Stripe Brasil", description: "Calcule as taxas do Stripe para empresas brasileiras em BRL.", icon: "R$", tone: "green" },
 ];
 
@@ -50,12 +48,16 @@ const converters: Tool[] = [
   { slug: "stripe-to-xero-converter", name: "Stripe to Xero Converter", description: "Turn a Stripe export into a Xero-ready bank import file.", icon: "↗", badge: "Popular", tone: "blue" },
   { slug: "stripe-to-freeagent-converter", name: "Stripe to FreeAgent Converter", description: "Convert Stripe CSV data into FreeAgent import format.", icon: "↗", tone: "teal" },
   { slug: "stripe-mtd-bridging-formatter", name: "MTD Bridging Formatter", description: "Format Stripe transactions for Making Tax Digital.", icon: "⌘", tone: "violet" },
+  { slug: "stripe-vat-oss-formatter", name: "Stripe VAT OSS Formatter", description: "Format Stripe transactions for EU One-Stop-Shop (OSS) VAT filing.", icon: "⌘", tone: "blue" },
+  { slug: "stripe-bas-reporting-formatter", name: "Stripe BAS Reporting Formatter", description: "Summarize GST components for Australian BAS filing.", icon: "⌘", tone: "green" },
   { slug: "csv-column-mapper", name: "CSV Column Mapper", description: "Rename columns and download a QuickBooks-ready CSV.", icon: "▤", tone: "orange" },
   { slug: "quickbooks-chart-of-accounts-generator", name: "Chart of Accounts Generator", description: "Generate a QuickBooks import template for your business.", icon: "▦", tone: "green" },
   { slug: "bank-statement-to-excel", name: "Bank Statement to Excel", description: "Turn a bank statement into a clean spreadsheet.", icon: "▤", tone: "blue" },
 ];
 
 const errorChecking: Tool[] = [
+  { slug: "stripe-1099k-reconciliation-checker", name: "Stripe 1099-K Reconciliation", description: "Reconcile your Stripe 1099-K reported gross volume against your payouts.", icon: "✓", tone: "violet" },
+  { slug: "stripe-xero-reconciliation-checker", name: "Xero Import Error Checker", description: "Fix Xero CSV import errors from Stripe instantly.", icon: "✓", badge: "New", tone: "blue" },
   { slug: "quickbooks-import-error-checker", name: "QuickBooks Import Error Checker", description: "Find why QuickBooks rejects your CSV and get a specific fix.", icon: "✓", badge: "High intent", tone: "green" },
 ];
 

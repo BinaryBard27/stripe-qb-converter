@@ -3,7 +3,7 @@ import { posts } from './blog/posts'
 import { absoluteUrl } from '@/lib/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const toolSlugs = ['stripe-fee-calculator', 'stripe-mtd-bridging-formatter', 'stripe-to-xero-converter', 'quickbooks-import-error-checker', 'stripe-fee-calculator-canada', 'stripe-fee-calculator-australia', 'stripe-vs-paypal-fee-comparison', 'stripe-fees-vs-square', 'stripe-nonprofit-pricing'];
+  const toolSlugs = ['stripe-fee-calculator', 'stripe-mtd-bridging-formatter', 'stripe-to-xero-converter', 'quickbooks-import-error-checker', 'stripe-fee-calculator-canada', 'stripe-fee-calculator-australia', 'stripe-fees-vs-square', 'stripe-nonprofit-pricing', 'stripe-1099k-reconciliation-checker', 'stripe-vat-oss-formatter', 'stripe-bas-reporting-formatter', 'stripe-xero-reconciliation-checker'];
   const toolUrls = toolSlugs.map((slug) => ({
     url: absoluteUrl(`/tools/${slug}`),
     lastModified: new Date('2026-09-12'),

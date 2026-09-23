@@ -1,7 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: '/tools/stripe-fee-calculator-india',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/tools/stripe-vs-paypal-fee-comparison',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
